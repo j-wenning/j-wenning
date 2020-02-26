@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.col {
+  height: 100%;
+  width: 95%;
+}
+
+h1 {
+  text-align: center;
+}
