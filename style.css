@@ -4,6 +4,13 @@ body {
   margin: 0;
 }
 
+.content {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 5%;
+}
+
 .row {
   display: flex;
   align-items: center;
@@ -19,4 +26,26 @@ body {
 
 h1 {
   text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+h1::before {
+  border: 1px solid black;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  /* text-align: center; */
+}
+
+.v-center {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
