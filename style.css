@@ -1,51 +1,47 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
-  height: 100vh;
-  margin: 0;
-}
-
-.content {
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  padding: 5%;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-
-.col {
-  height: 100%;
-  width: 95%;
-}
-
-h1 {
-  text-align: center;
-  width: 100%;
-  margin: 0;
-}
-
-h1::before {
-  border: 1px solid black;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  /* text-align: center; */
-}
-
-.v-center {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+main {
+  width: 100%;
+}
+
+aside {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  width: 50%;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+nav a {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  main {
+    width: 70%;
+  }
+
+  aside {
+    position: unset;
+    width: 30%;
+    height: unset;
+    background-color: unset ;
+  }
 }
