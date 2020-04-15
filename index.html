@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link type="text/css" rel="stylesheet" href="style.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/726f3d1dbe.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
-      <button class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <h1>Justin Wenning</h1>
       <div>
-        <a href="https://www.github.com/j-wenning">My GitHub</a>
-        <a download="">My Resume</a>
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h1>Justin Wenning</h1>
+      </div>
+      <div>
+        <a href="https://www.github.com/j-wenning">GitHub</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a download="">Resume</a>
       </div>
     </header>
     <aside>
@@ -72,6 +74,7 @@
         </ul>
       </div>
       <div id="apps">
+        <h2>Applications</h2>
         <div id="connect">
 
         </div>
@@ -81,6 +84,19 @@
         <div id="art-spread">
 
         </div>
+      </div>
+      <div id="contact">
+        <h2>Contact Me</h2>
+        <form action="https://formsubmit.co/" method="POST" id="mailForm">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email">
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone">
+          <label for="msg">Message</label>
+          <input type="text" name="msg" id="msg">
+        </form>
       </div>
     </main>
     <script src="main.js"></script>
