@@ -8,25 +8,35 @@
     <script src="https://kit.fontawesome.com/726f3d1dbe.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <div class="background"></div>
     <header>
-      <div>
-        <button class="menu-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-        <h1>Justin Wenning</h1>
-      </div>
-      <div>
-        <a href="https://www.github.com/j-wenning">GitHub</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <a download="">Resume</a>
-      </div>
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Justin Wenning</h1>
     </header>
     <aside>
       <nav>
-        <a href="#about">About Me</a>
-        <a href="#skills">Skills</a>
-        <a href="#apps">Applications</a>
-        <a href="#contact">Contact Me</a>
+        <ul>
+          <li>
+            <a href="#about">About Me</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#apps">Applications</a>
+          </li>
+          <li>
+            <a href="#contact">Contact Me</a>
+          </li>
+          <li>
+            <a href="https://www.github.com/j-wenning">GitHub</a>
+          </li>
+          <li>
+            <a download="">Resume</a>
+          </li>
+        </ul>
       </nav>
     </aside>
     <main>
@@ -95,7 +105,7 @@
           <label for="phone">Phone Number</label>
           <input type="tel" name="phone" id="phone">
           <label for="msg">Message</label>
-          <input type="text" name="msg" id="msg">
+          <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
         </form>
       </div>
     </main>
