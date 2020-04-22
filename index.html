@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jWenning</title>
     <link type="text/css" rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/726f3d1dbe.js" crossorigin="anonymous"></script>
   </head>
@@ -85,6 +85,7 @@
       </div>
       <div id="apps">
         <h2>Applications</h2>
+        <p>[Will be added shortly]</p>
         <div id="connect">
 
         </div>
@@ -97,15 +98,19 @@
       </div>
       <div id="contact">
         <h2>Contact Me</h2>
-        <form action="https://formsubmit.co/" method="POST" id="mailForm">
+        <form action="https://formsubmit.co/675141c9d9b4b45f144322cd4220e3e2" method="POST" id="mailForm">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name">
+          <input type="text" name="_replyto" id="name" required>
           <label for="email">Email</label>
-          <input type="email" name="email" id="email">
+          <input type="email" name="email" id="email" required>
           <label for="phone">Phone Number</label>
           <input type="tel" name="phone" id="phone">
+          <label for="subject">Subject</label>
+          <input type="text" name="_subject" id="subject" required>
           <label for="msg">Message</label>
-          <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+          <textarea name="msg" id="msg" cols="30" rows="10" required></textarea>
+          <input type="text" name="_honey" style="display: none;">
+          <button type="submit">Send</button>
         </form>
       </div>
     </main>
