@@ -3,23 +3,117 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jWenning</title>
     <link type="text/css" rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/726f3d1dbe.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="content">
-      <div class="row">
-        <div class="col v-center">
-          <h1>[Landing]</h1>
-          <nav>
-            <ul>
-              <li>
-                <a href="http://connect.jwenning.digital">Connect</a>
-              </li>
-            </ul>
-          </nav>
+    <div class="background"></div>
+    <header>
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1>Justin Wenning</h1>
+    </header>
+    <aside>
+      <nav>
+        <ul>
+          <li>
+            <a href="#about">About Me</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#apps">Applications</a>
+          </li>
+          <li>
+            <a href="#contact">Contact Me</a>
+          </li>
+          <li>
+            <a href="https://www.github.com/j-wenning">GitHub</a>
+          </li>
+          <li>
+            <a download="">Resume</a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <div id="about">
+        <h2>About Me</h2>
+        <p>
+          I am a developer from Southern California with a passion for development and healthy love of videogames&period;  Ever since I was younger I&apos;ve had a strong desire to create and innovate&comma; and through the field of Computer Science I&apos;ve been enabled to do exactly that&period;  Over the past few years I&apos;ve devoted myself to learning new skills and techniques that will allow me to become the most effective developer I can possibly be &lpar;and I&apos;m still learning&excl;&rpar;&period;  Recently I decided to attend a web development bootcamp at LeaningFuze to further expand and cement the knowledge I gained through college and personal studies&comma; taking a dive into the fields of JavaScript&comma; HTML&comma; CSS and even SQL&excl;  With this knowledge these tools I&apos;ve gained&comma; I believe that I can be an incredible asset to any project requiring a Full Stack developer with a bit of outside knowledge&period;
+        </p>
+      </div>
+      <div id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>
+            <h3>Services</h3>
+          </li>
+          <ul>
+            <li>Amazon Web Services &lpar;AWS&rpar;</li>
+            <li>Amazon Elastic Compute Cloud &lpar;EC2&rpar;</li>
+          </ul>
+          <li>
+            <h3>Languages &amp; Frameworks</h3>
+          </li>
+          <ul>
+            <li>JavaScript</li>
+            <li>PostgreSQL</li>
+            <li>Node&period;js</li>
+            <li>Express&period;js</li>
+            <li>React</li>
+            <li>C&pound;</li>
+            <li>C&plus;&plus;</li>
+          </ul>
+          <li>
+            <h3>Tools &amp; Libraries</h3>
+          </li>
+          <ul>
+            <li>npm</li>
+            <li>Webpack</li>
+            <li>Bootstrap</li>
+            <li>jQuery</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>Babel</li>
+            <li>GNU Bash</li>
+          </ul>
+        </ul>
+      </div>
+      <div id="apps">
+        <h2>Applications</h2>
+        <p>[Will be added shortly]</p>
+        <div id="connect">
+
+        </div>
+        <div id="wicked-sales">
+
+        </div>
+        <div id="art-spread">
+
         </div>
       </div>
-    </div>
+      <div id="contact">
+        <h2>Contact Me</h2>
+        <form action="https://formsubmit.co/675141c9d9b4b45f144322cd4220e3e2" method="POST" id="mailForm">
+          <label for="name">Name</label>
+          <input type="text" name="_replyto" id="name" required>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone">
+          <label for="subject">Subject</label>
+          <input type="text" name="_subject" id="subject" required>
+          <label for="msg">Message</label>
+          <textarea name="msg" id="msg" cols="30" rows="10" required></textarea>
+          <input type="text" name="_honey" style="display: none;">
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </main>
+    <script src="main.js"></script>
   </body>
 </html>
