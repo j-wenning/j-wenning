@@ -98,11 +98,11 @@
       </div>
       <div id="contact">
         <h2>Contact Me</h2>
-        <form action="https://formsubmit.co/675141c9d9b4b45f144322cd4220e3e2" method="POST" id="mailForm">
+        <form id="mailForm">
           <label for="name">Name</label>
-          <input type="text" name="_replyto" id="name" required>
+          <input type="text" name="name" id="name" required>
           <label for="email">Email</label>
-          <input type="email" name="email" id="email" required>
+          <input type="email" name="_replyto" id="email" required>
           <label for="phone">Phone Number</label>
           <input type="tel" name="phone" id="phone">
           <label for="subject">Subject</label>
@@ -110,6 +110,7 @@
           <label for="msg">Message</label>
           <textarea name="msg" id="msg" cols="30" rows="10" required></textarea>
           <input type="text" name="_honey" style="display: none;">
+          <input type="hidden" name="_captcha" value="false">
           <button type="submit">Send</button>
         </form>
       </div>
