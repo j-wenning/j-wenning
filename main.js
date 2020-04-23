@@ -31,8 +31,11 @@ form.addEventListener('submit', e => {
   }).catch(err => console.error(err));
 });
 
-menuButton.addEventListener('click', toggleAside);
+form.addEventListener('input', e => {
+  e.target.value = `${e.target.value}`;
+});
 
+menuButton.addEventListener('click', toggleAside);
 
 function toggleAside() {
   toggled = !toggled;
