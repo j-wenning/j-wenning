@@ -15,21 +15,20 @@ aside.addEventListener('click', e => {
 });
 
 form.addEventListener('submit', e => {
-  const data = {};
-  [...new FormData(form).entries()].forEach(val => {
-    data[val[0]] = val[1];
-  });
+  const payload = new FormData(form);
   e.preventDefault();
   fetch('https://formsubmit.co/ajax/675141c9d9b4b45f144322cd4220e3e2', {
     method: 'POST',
-    body: data
+    mode: 'no-cors',
+    credentials: 'same-origin',
+    body: payload
   }).then(() => {
-      let cur = form;
-      cur.reset();
-      cur.innerHTML = "";
-      cur = form.appendChild(document.createElement('p'));
-      cur.textContent = `Thank you for your submission.  I will be sending my response to your inbox '${data.get('_replyto')}' unless otherwise specified.`;
-    }).catch(err => console.error(err));
+    let cur = form;
+    cur.reset();
+    cur.innerHTML = "";
+    cur = form.appendChild(document.createElement('p'));
+    cur.textContent = `Thank you for your submission.  I will be sending my response to your inbox '${payload.get('_replyto')}' unless otherwise specified.`;
+  }).catch(err => console.error(err));
 });
 
 menuButton.addEventListener('click', toggleAside);
