@@ -69,9 +69,14 @@ nav {
   padding-top: 3em;
 }
 
-nav ul {
+ul {
   list-style: none;
   padding: 0;
+}
+
+ul ul {
+  list-style: initial;
+  padding-left: 1.5em;
 }
 
 nav li {
@@ -119,6 +124,13 @@ form textarea {
 }
 
 @media only screen and (min-width: 600px) {
+  div > ul,
+  p,
+  form {
+    list-style: none;
+    padding: 0 0 0 1em;
+  }
+
   main {
     width: 70%;
   }
