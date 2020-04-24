@@ -10,7 +10,7 @@
   <body>
     <div class="background"></div>
     <header>
-      <button class="menu-toggle">
+      <button id="menu">
         <i class="fas fa-bars"></i>
       </button>
       <h1>Justin Wenning</h1>
@@ -132,33 +132,39 @@
       </div>
       <div id="apps">
         <h2>Applications</h2>
-        <p>[Will be added shortly]</p>
-        <div id="connect">
-          <h3>Connect</h3>
-        </div>
-        <div id="plush-stop">
-
-        </div>
-        <div id="art-spread">
-
-        </div>
+        <ul>
+          <li>
+            <h3>Connect</h3>
+          </li>
+          <li>
+            <h3>Plush Stop</h3>
+          </li>
+          <li>
+            <h3>Art Spread</h3>
+          </li>
+        </ul>
       </div>
       <div id="contact">
         <h2>Contact Me</h2>
-        <form id="mailForm">
+        <form id="form">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name" required>
+          <input type="text" name="name" id="name" placeholder="e.g. John Doe" required>
+          <label id="name-err" for="name" class="err hidden">&ast;Must provide a name 5 characters or longer</label>
           <label for="email">Email</label>
-          <input type="email" name="_replyto" id="email" required>
-          <label for="phone">Phone Number</label>
-          <input type="tel" name="phone" id="phone">
+          <input type="email" name="_replyto" id="email" placeholder="e.g. johndoe@email.com" required>
+          <label id="email-err" for="name" class="err hidden">&ast;Must provide a valid email</label>
+          <label for="phone">Phone Number <span>(Optional, US Only)</span></label>
+          <input type="tel" name="phone" id="phone" placeholder="e.g. (555) 555 5555 (optional)">
+          <label id="phone-err" for="name" class="err hidden">&ast;Must provide a 10 digit phone number or leave blank</label>
           <label for="subject">Subject</label>
-          <input type="text" name="_subject" id="subject" required>
+          <input type="text" name="_subject" id="subject" placeholder="e.g. Hello!" required>
+          <label id="subject-err" for="name" class="err hidden">&ast;Must provide a subject 6 characters or longer</label>
           <label for="msg">Message</label>
           <textarea name="msg" id="msg" cols="30" rows="10" required></textarea>
+          <label id="msg-err" for="name" class="err hidden">&ast;Must provide a message 10 characters or longer</label>
           <input type="text" name="_honey" style="display: none;">
           <input type="hidden" name="_captcha" value="false">
-          <button type="submit">Send</button>
+          <button id="submit" type="submit" disabled>Send</button>
         </form>
       </div>
     </main>
