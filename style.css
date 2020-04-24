@@ -87,14 +87,29 @@ nav li:nth-child(2n) {
   background-color: rgba(242, 212, 251, 0.25);
 }
 
-form *:not(button) {
+form *:not(button):not(span) {
+  display: block;
   width: 100%;
 }
 
 form input,
 form textarea {
+  margin: 2px 0;
   padding: 3px;
   border-radius: 5px;
+}
+
+label span {
+  font-size: 8pt;
+}
+
+#menu {
+  z-index: 1;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: 2em;
+  font-size: 1.5em;
 }
 
 .background {
@@ -109,13 +124,8 @@ form textarea {
   animation: saturate 20s linear infinite alternate;
 }
 
-.menu-toggle {
-  z-index: 1;
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  width: 2em;
-  font-size: 1.5em;
+.err {
+  color: rgb(246, 160, 160);
 }
 
 @keyframes saturate {
@@ -160,7 +170,7 @@ form textarea {
     background-color: rgb(20, 10, 30, 0.5);
   }
 
-  .menu-toggle {
+  #menu {
     display: none;
   }
 }
@@ -171,4 +181,13 @@ form textarea {
 
 .animating {
   transition: all 0.5s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+[disabled] {
+  filter: grayscale(100%);
+  opacity: 50%;
 }
