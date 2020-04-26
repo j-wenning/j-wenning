@@ -19,6 +19,7 @@ nav li {
 a h3,
 a h4 {
   display: inline-block;
+  margin: 0;
 }
 
 html {
@@ -144,7 +145,7 @@ label span {
 
 @media only screen and (min-width: 600px) {
   div > ul,
-  p,
+  h2 + p,
   form {
     list-style: none;
     padding: 0 0 0 1em;
