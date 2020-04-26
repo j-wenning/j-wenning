@@ -114,6 +114,14 @@ img {
   border-radius: 10px;
 }
 
+img {
+  display: block;
+  max-width: 80%;
+  margin: 1em auto;
+  border: 2px double white;
+  border-radius: 10px;
+}
+
 form *:not(button):not(span) {
   display: block;
   width: 100%;
