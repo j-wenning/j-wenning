@@ -19,6 +19,7 @@ nav li {
 a h3,
 a h4 {
   display: inline-block;
+  margin-bottom: 0.25em;
 }
 
 li:first-child a h3,
