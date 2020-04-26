@@ -19,7 +19,11 @@ nav li {
 a h3,
 a h4 {
   display: inline-block;
-  margin: 0;
+}
+
+li:first-child a h3,
+li:first-child a h4 {
+  margin-top: 0;
 }
 
 html {
