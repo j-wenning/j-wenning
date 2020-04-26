@@ -11,6 +11,16 @@ nav {
   background-color: rgb(20, 21, 22);
 }
 
+h1,
+nav li {
+  text-align: center;
+}
+
+a h3,
+a h4 {
+  display: inline-block;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: rgb(20, 10, 30);
@@ -33,11 +43,6 @@ header {
 button {
   border-radius: 10px;
   border: 2px solid white;
-}
-
-h1,
-nav li {
-  text-align: center;
 }
 
 h1 {
@@ -85,6 +90,10 @@ nav li {
 
 nav li:nth-child(2n) {
   background-color: rgba(242, 212, 251, 0.25);
+}
+
+a h4 {
+  margin-left: 1em;
 }
 
 form *:not(button):not(span) {
