@@ -1,6 +1,7 @@
 html,
 button {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: justify;
   font-size: 12pt;
   color: rgb(250, 250, 240);
 }
@@ -98,8 +99,11 @@ nav li:nth-child(2n) {
   background-color: rgba(242, 212, 251, 0.25);
 }
 
-a h4 {
-  margin-left: 1em;
+li div {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
 }
 
 img {
