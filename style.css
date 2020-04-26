@@ -95,7 +95,7 @@ nav li {
   padding: 10px 30px;
 }
 
-nav li:nth-child(2n) {
+nav a:nth-child(2n) li {
   background-color: rgba(242, 212, 251, 0.25);
 }
 
