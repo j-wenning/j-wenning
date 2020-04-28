@@ -28,6 +28,12 @@ li:first-child a h4 {
   margin-top: 0;
 }
 
+li div:first-child,
+li button {
+  display: flex;
+  justify-content: space-between;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: rgb(20, 10, 30);
@@ -100,16 +106,15 @@ nav a:nth-child(2n) li {
   background-color: rgba(242, 212, 251, 0.25);
 }
 
-li div {
-  display: flex;
+li div:first-child {
   width: 90%;
   margin: auto;
-  justify-content: space-between;
 }
 
 img {
   display: block;
   max-width: 80%;
+  max-height: 300px;
   margin: 1em auto;
   border: 2px double white;
   border-radius: 10px;
@@ -121,6 +126,17 @@ img {
   margin: 1em auto;
   border: 2px double white;
   border-radius: 10px;
+}
+
+li button {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(242, 212, 251, 0.25);
+}
+
+li button h4 {
+  display: block;
 }
 
 form *:not(button):not(span) {
@@ -146,7 +162,6 @@ label span {
   left: 5px;
   width: 2em;
   font-size: 1.5em;
-
 }
 
 .background {
@@ -171,7 +186,7 @@ label span {
 }
 
 @media only screen and (min-width: 600px) {
-  div > ul,
+  div:first > ul,
   h2 + p,
   form {
     list-style: none;
