@@ -11,6 +11,28 @@ nav {
   background-color: rgb(20, 21, 22);
 }
 
+h1,
+nav li {
+  text-align: center;
+}
+
+a h3,
+a h4 {
+  display: inline-block;
+  margin-bottom: 0.25em;
+}
+
+li:first-child a h3,
+li:first-child a h4 {
+  margin-top: 0;
+}
+
+li div:first-child,
+li button {
+  display: flex;
+  justify-content: space-between;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: rgb(20, 10, 30);
@@ -33,11 +55,6 @@ header {
 button {
   border-radius: 10px;
   border: 2px solid white;
-}
-
-h1,
-nav li {
-  text-align: center;
 }
 
 h1 {
@@ -69,27 +86,68 @@ nav {
   padding-top: 3em;
 }
 
-nav ul {
+ul {
   list-style: none;
   padding: 0;
+}
+
+ul ul {
+  list-style: initial;
+  padding-left: 1.5em;
 }
 
 nav li {
   padding: 10px 30px;
 }
 
-nav li:nth-child(2n) {
+nav a:nth-child(2n) li {
   background-color: rgba(242, 212, 251, 0.25);
 }
 
-form *:not(button) {
+li div:first-child {
+  width: 90%;
+  margin: auto;
+}
+
+img {
+  display: block;
+  max-width: 80%;
+  max-height: 300px;
+  margin: 1em auto;
+  border: 2px double white;
+  border-radius: 10px;
+}
+
+li button {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  background-color: rgba(242, 212, 251, 0.25);
+}
+
+form *:not(button):not(span) {
+  display: block;
   width: 100%;
 }
 
 form input,
 form textarea {
+  margin: 2px 0;
   padding: 3px;
   border-radius: 5px;
+}
+
+label span {
+  font-size: 8pt;
+}
+
+#menu {
+  z-index: 1;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: 2em;
+  font-size: 1.5em;
 }
 
 .background {
@@ -104,13 +162,8 @@ form textarea {
   animation: saturate 20s linear infinite alternate;
 }
 
-.menu-toggle {
-  z-index: 1;
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  width: 2em;
-  font-size: 1.5em;
+.err {
+  color: rgb(246, 160, 160);
 }
 
 @keyframes saturate {
@@ -119,6 +172,13 @@ form textarea {
 }
 
 @media only screen and (min-width: 600px) {
+  div:first > ul,
+  h2 + p,
+  form {
+    list-style: none;
+    padding: 0 0 0 1em;
+  }
+
   main {
     width: 70%;
   }
@@ -140,7 +200,6 @@ form textarea {
   }
 
   nav li {
-    text-align: unset;
     border-radius: 0 10px 10px 0;
   }
 
@@ -148,7 +207,7 @@ form textarea {
     background-color: rgb(20, 10, 30, 0.5);
   }
 
-  .menu-toggle {
+  #menu {
     display: none;
   }
 }
@@ -159,4 +218,13 @@ form textarea {
 
 .animating {
   transition: all 0.5s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+[disabled] {
+  filter: grayscale(100%);
+  opacity: 50%;
 }
