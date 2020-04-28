@@ -70,6 +70,16 @@ form.addEventListener('input', e => {
   elem.addEventListener('blur', () => handleBlur(elem.id));
 });
 
+[...document.querySelectorAll('li button')].forEach(elem => {
+  elem.addEventListener('click', () => {
+    const div = elem.nextElementSibling.classList;
+    const icon = elem.lastElementChild.firstElementChild.classList;
+    div.toggle('hidden');
+    icon.toggle('fa-caret-down');
+    icon.toggle('fa-caret-up');
+  });
+});
+
 function handleBlur(id) {
   if (!formValChecks[id]) document.querySelector(`#${id}-err`).classList.remove('hidden');
 }
