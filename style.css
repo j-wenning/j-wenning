@@ -35,6 +35,7 @@ li button {
 
 form input,
 form textarea {
+  box-sizing: border-box;
   margin: 2px 0;
   padding: 3px;
   border-radius: 5px;
