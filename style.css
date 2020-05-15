@@ -50,9 +50,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   max-width: 1000px;
-  margin: 10px auto 100px;
+  margin: 0 auto;
   background-color: rgba(74, 75, 76, 0.25);
-  box-shadow: 0 0 20px 10px rgba(242, 212, 251, 0.25);
 }
 
 header {
@@ -199,6 +198,11 @@ label span {
   form {
     list-style: none;
     padding: 0 0 0 1em;
+  }
+
+  body {
+    margin: 10px auto 100px;
+    box-shadow: 0 0 20px 10px rgba(242, 212, 251, 0.25);
   }
 
   main {
