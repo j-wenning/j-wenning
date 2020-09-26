@@ -1,130 +1,132 @@
-const aside = document.querySelector('aside');
-const menuButton = document.querySelector('#menu');
-const form = document.querySelector('#form');
-const submitButton = document.querySelector('#submit');
-const resizeEvent = { e: window.document.createEvent('UIEvents') };
-const formVals = {};
-const formValChecks = {
-  name: false,
-  phone: true,
-  subject: false,
-  msg: false
-};
-const animDelay = 500;
-let toggled = false;
-let canSubmit = false;
+const MS_TO_S = 1000;
+const W_MOBILE = 800;
+const POS = 1;
+const ZRO = 0;
+const NEG = -1;
+const BUTTON_SCALE_PADDLE = 0.2;
+const divTop = document.getElementById("divTop");
+const divBot = document.getElementById("divBot");
+const navTop = document.getElementById("navTop");
+const navBot = document.getElementById("navBot");
+const buttonsNav = [...document.getElementsByClassName("button-nav")];
+const divWelcome = document.getElementById("divWelcome");
+const buttonPaddleL = document.getElementById("buttonPaddleL");
+const buttonPaddleR = document.getElementById("buttonPaddleR");
+const buttonEnter = document.getElementById("buttonEnter");
+const buttonResume = document.getElementById("buttonResume");
+const divDownload = document.getElementById("divDownload");
+const buttonDownloadClose = document.getElementById("buttonDownloadClose");
+const linkDownload = document.getElementById("linkDownload")
+const linesUrlMobile = "assets/images/lines-mobile.svg";
+const linesUrlDesktop = "assets/images/lines-desktop.svg";
+const divWelcomeTime = parseFloat(getComputedStyle(divWelcome).transitionDuration) * MS_TO_S;
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 600) aside.classList.remove('collapsed');
-  else aside.classList.add('collapsed');
-});
+const divs = new Array();
+let divsTime;
+let indexCur = ZRO;
+let intervalCur;
 
-aside.addEventListener('click', e => {
-  if (toggled && (e.target === e.currentTarget || e.target.tagName === 'A')) toggleAside();
-});
+const getDiv = index => index < 0 ? divs.length + (index % divs.length) : index % divs.length;
+const getDivAdj = (direction, index = indexCur) => getDiv(index + Math.sign(direction));
+const divNext = direction => {
+    const indexNext = getDivAdj(direction);
+    let divCur = divs[indexCur];
+    let divL = divs[getDivAdj(NEG)];
+    let divR = divs[getDivAdj(POS)];
 
-menuButton.addEventListener('click', toggleAside);
+    divCur.classList.add("closed");
+    divL.classList.add("closed");
+    divL.classList.remove("left", "translate-left-84", "opacity-f5");
+    divL.firstElementChild.classList.remove("scale-f75");
+    divR.classList.add("closed");
+    divR.classList.remove("right", "translate-right-84", "opacity-f5");
+    divR.firstElementChild.classList.remove("scale-f75");
 
-form.addEventListener('submit', e => {
-  checkAll();
-  if (canSubmit) {
-    const payload = new FormData(form);
-    e.preventDefault();
-    fetch('https://formsubmit.co/ajax/675141c9d9b4b45f144322cd4220e3e2', {
-      method: 'POST',
-      mode: 'no-cors',
-      credentials: 'same-origin',
-      body: payload
-    }).then(() => {
-      let cur = form;
-      cur.reset();
-      cur.innerHTML = "";
-      cur = form.appendChild(document.createElement('p'));
-      cur.textContent = `Thank you for your submission.  I will be sending my response to your inbox '${payload.get('_replyto')}' unless otherwise specified.`;
-    }).catch(err => console.error(err));
-  }
-});
+    indexCur = indexNext
+    divCur = divs[indexCur];
+    divL = divs[getDivAdj(NEG)];
+    divR = divs[getDivAdj(POS)];
 
-form.addEventListener('input', e => {
-  let temp;
-  e = e.target;
-  switch (e.id) {
-    case 'name':
-      e.value = e.value.replace(/\s+/g, ' ').replace(/(?!'| |\.)\W|\d/gi, '').trimStart().substr(0, 65);
-      break;
-    case 'phone':
-      if (formVals.phone && formVals.phone.length < e.value.length) {
-        e.value = e.value.replace(/\D/g, '');
-        temp = e.value.match(/\d{3}/g);
-        if (temp && temp[0]) {
-          e.value = `(${temp[0]}) ${temp[1] ? temp[1] : e.value.substr(3)} ${e.value.substr(6, 4)}`
-        }
-      }
-      break;
-  }
-  formVals[e.id] = e.value.trim();
-  checkAll();
-});
+    divCur.classList.remove("closed");
+    divL.classList.remove("closed");
+    divL.classList.add("left", "translate-left-84", "opacity-f5");
+    divL.firstElementChild.classList.add("scale-f75");
+    divR.classList.remove("closed");
+    divR.classList.add("right", "translate-right-84", "opacity-f5");
+    divR.firstElementChild.classList.add("scale-f75");
+}
+const divCurSet = (index, interval = divsTime, force = false) => {
+    if (index === indexCur && !force) return indexCur;
 
-[...document.querySelectorAll('form input, form textarea')].forEach(elem => {
-  elem.addEventListener('blur', () => handleBlur(elem.id));
-});
-
-[...document.querySelectorAll('li button')].forEach(elem => {
-  elem.addEventListener('click', () => {
-    const div = elem.nextElementSibling.classList;
-    const icon = elem.lastElementChild.firstElementChild.classList;
-    div.toggle('hidden');
-    icon.toggle('fa-caret-down');
-    icon.toggle('fa-caret-up');
-  });
-});
-
-function handleBlur(id) {
-  if (!formValChecks[id]) document.querySelector(`#${id}-err`).classList.remove('hidden');
+    const indexNext = getDiv(index);
+    let _indexCur = indexCur;
+    let distanceR = ZRO;
+    let distanceL = ZRO;
+    
+    while (_indexCur != indexNext) {
+        _indexCur = getDivAdj(POS, _indexCur);
+        ++distanceR;
+    }    
+    _indexCur = indexCur;
+    while (_indexCur != indexNext) {
+        _indexCur = getDivAdj(NEG, _indexCur);
+        ++distanceL;
+    }
+    _indexCur = indexCur;
+    clearInterval(intervalCur);
+    intervalCur = setInterval(() => {
+        divNext(distanceR <= distanceL ? POS : NEG);
+        if (indexCur === indexNext) clearInterval(intervalCur);
+    }, interval);
+    
+    return indexCur;
 }
 
-function checkAll() {
-  let canSubmitCheck = true;
-  ['name', 'email', 'phone', 'subject', 'msg'].forEach(val => {
-    if(!isValid(val)) canSubmitCheck = false;
-  });
-  canSubmit = canSubmitCheck;
-  if (canSubmit) submitButton.removeAttribute('disabled');
-}
+buttonsNav.forEach((button, index) => {
+    divs.push(document.getElementById(button.id.replace("button", "div")));
+    button.addEventListener("click", () => divCurSet(index));
+});
 
-function isValid(val) {
-  switch (val) {
-    case 'name':
-      formValChecks[val] = formVals[val] && formVals[val].length > 4;
-      break;
-    case 'email':
-      formValChecks[val] = formVals[val] && /\w+@\w+\.\w/g.test(formVals[val]);
-      break;
-    case 'phone':
-      formValChecks[val] = !formVals[val] || (formVals[val] && (formVals[val].length === 14 || formVals[val].length === 0));
-      break;
-    case 'subject':
-      formValChecks[val] = formVals[val] && formVals[val].length > 5;
-      break;
-    case 'msg':
-      formValChecks[val] = formVals[val] && formVals[val].length > 9;
-      break;
-  }
-  if (formValChecks[val]) document.querySelector(`#${val}-err`).classList.add('hidden');
-  else canSubmit = false;
-  return formValChecks[val];
-}
+divsTime = parseFloat(getComputedStyle(divs[ZRO]).transitionDuration) * MS_TO_S;
 
-function toggleAside() {
-  toggled = !toggled;
-  aside.classList.toggle('collapsed');
-  aside.classList.add('animating');
-  setTimeout(() => {
-    aside.classList.remove('animating');
-  }, animDelay);
-}
+Object.freeze(divs);
 
-resizeEvent.e.initUIEvent('resize', true, false, window, 0);
-window.dispatchEvent(resizeEvent.e);
-delete resizeEvent.e;
+buttonEnter.addEventListener("click", () => {
+    divWelcome.classList.add("opacity-0");
+    divTop.classList.add("pos-rt");
+    divBot.classList.add("pos-rt");
+    navTop.classList.remove("translate-left-125");
+    navBot.classList.remove("translate-right-125");
+    setTimeout(() => {
+        divWelcome.classList.add("closed");
+        divWelcome.classList.remove("opacity-0");
+    }, divWelcomeTime);
+});
+
+buttonPaddleL.addEventListener("click", () => divNext(NEG));
+buttonPaddleR.addEventListener("click", () => divNext(POS));
+
+divCurSet(indexCur, ZRO, true);
+
+divDownload.addEventListener("click", e => {
+    if (e.target !== e.currentTarget) return;
+    divDownload.classList.toggle("closed");
+});
+[buttonResume, buttonDownloadClose, linkDownload].forEach(elem => 
+    elem.addEventListener("click", () => divDownload.classList.toggle("closed")));
+
+window.addEventListener("resize", () => {
+    divTop.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
+    divBot.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
+    buttonPaddleL.getElementsByClassName("imgPaddle")[ZRO].setAttribute("height", window.innerHeight * BUTTON_SCALE_PADDLE);
+    buttonPaddleR.getElementsByClassName("imgPaddle")[ZRO].setAttribute("height", window.innerHeight * BUTTON_SCALE_PADDLE);
+});
+
+document.addEventListener("wheel", e => {
+    if (!divWelcome.classList.contains("closed")) return;
+    divNext(e.deltaY);
+});
+
+document.addEventListener("dragstart", e => e.preventDefault());
+
+window.dispatchEvent(new Event("resize"));
