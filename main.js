@@ -16,10 +16,13 @@ const buttonEnter = document.getElementById("buttonEnter");
 const buttonResume = document.getElementById("buttonResume");
 const divDownload = document.getElementById("divDownload");
 const buttonDownloadClose = document.getElementById("buttonDownloadClose");
-const linkDownload = document.getElementById("linkDownload")
+const linkDownload = document.getElementById("linkDownload");
+const buttonApplications = document.getElementById("buttonApplications");
+const ulApplications = document.getElementById("ulApplications");
 const linesUrlMobile = "assets/images/lines-mobile.svg";
 const linesUrlDesktop = "assets/images/lines-desktop.svg";
 const divWelcomeTime = parseFloat(getComputedStyle(divWelcome).transitionDuration) * MS_TO_S;
+const linesTime = parseFloat(getComputedStyle(divTop).transitionDuration) * MS_TO_S;
 
 const divs = new Array();
 let divsTime;
@@ -54,6 +57,8 @@ const divNext = direction => {
     divR.classList.remove("closed");
     divR.classList.add("right", "translate-right-84", "opacity-f5");
     divR.firstElementChild.classList.add("scale-f75");
+
+    ulApplications.classList.add("scale-y-0");
 }
 const divCurSet = (index, interval = divsTime, force = false) => {
     if (index === indexCur && !force) return indexCur;
@@ -87,6 +92,8 @@ buttonsNav.forEach((button, index) => {
     button.addEventListener("click", () => divCurSet(index));
 });
 
+buttonApplications.addEventListener("click", () => ulApplications.classList.toggle("scale-y-0"));
+
 divsTime = parseFloat(getComputedStyle(divs[ZRO]).transitionDuration) * MS_TO_S;
 
 Object.freeze(divs);
@@ -101,6 +108,9 @@ buttonEnter.addEventListener("click", () => {
         divWelcome.classList.add("closed");
         divWelcome.classList.remove("opacity-0");
     }, divWelcomeTime);
+    setTimeout(() => {
+        [divTop, divBot, navTop, navBot].forEach(e => e.classList.remove("ease-2")); 
+    }, linesTime);
 });
 
 buttonPaddleL.addEventListener("click", () => divNext(NEG));
@@ -112,8 +122,8 @@ divDownload.addEventListener("click", e => {
     if (e.target !== e.currentTarget) return;
     divDownload.classList.toggle("closed");
 });
-[buttonResume, buttonDownloadClose, linkDownload].forEach(elem => 
-    elem.addEventListener("click", () => divDownload.classList.toggle("closed")));
+[buttonResume, buttonDownloadClose, linkDownload].forEach(e => 
+    e.addEventListener("click", () => divDownload.classList.toggle("closed")));
 
 window.addEventListener("resize", () => {
     divTop.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
