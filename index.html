@@ -1,14 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>jWenning</title>
+        <title>jWenning - Messaging</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="title" content="jWenning Digital">
+        <meta name="title" content="jWenning Digital - Messaging">
         <meta name="author" content="Justin Wenning">
-        <meta name="keywords" content="justin, wenning, justinwenning, jwenning, wenningjustin, portfolio">
-        <meta name="image" content="https://jwenning.digital/assets/images/site-preview.png">
-        <meta name="description" content="Justin Wenning's portfolio site">
-        <meta name="url" content="https://jwenning.digital">
+        <meta name="image" content="https://jwenning.digital/assets/images/favicon.ico">
+        <meta name="description" content="Justin Wenning's direct messaging app">
+        <meta name="url" content="https://jwenning.digital/messaging">
         <meta name="robots" content="index, follow, noarchive">
         <script src="https://kit.fontawesome.com/726f3d1dbe.js" crossorigin="anonymous"></script>
         <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -137,13 +137,13 @@
             </button>
         </div>
         <div class="h-100vh w-100 bg-whitesmoke">
-            <div id="divWelcome" class="absolute h-100 w-100 flex flex-wrap flex-col align-center justify-center bg-white ease-f75 z-2">
-                <h1 class="m-b-1">Welcome</h1>
+            <div id="divWelcome" class="absolute h-100 w-100 flex flex-wrap align-center justify-center bg-white ease-f75 z-2">
+                <h1 class="w-100 m-b-1 text-center">Welcome</h1>
                 <button
                     id="buttonEnter"
                     type="button"
-                    class="p-1 bg-white border-solid border-black border-w-1f5 color-gray-hover selectable"
-                    ><h2>Enter</h2></button>
+                    class="p-h-1 p-w-4 bg-white border-solid border-black border-w-1f5 color-gray-hover selectable"
+                    ><p class="color-inherit">Enter</p></button>
             </div>
             <div>
                 <div id="divAbout" class="fixed h-100 w-100 flex justify-center ease-f2 closed">
@@ -291,8 +291,11 @@
                     </div>
                 </div>   
                 <div id="divContact" class="fixed flex justify-center h-100 w-100 ease-f2 closed">
-                    <div style="background-color: yellow" class="h-100 w-95 p-h-12vh-w-2 ease-f2">
-                        
+                    <div class="m-h-auto w-95 p-w-1 lg-p-w-2 text-center ease-f2">
+                        <h1 class="m-b-f5 text-capitalize">contact me</h1>
+                        <h2 id="h2Email" class="m-b-1"></h2>
+                        <h2 id="h2Phone" class="m-b-1"></h2>
+                        <p>Or try my custom messaging app <a href="messaging.html" target="_blank">here</a>!</p>
                     </div>
                 </div>
             </div>
