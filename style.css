@@ -1,16 +1,19 @@
-@font-face {
+@font-face 
+{
     font-family: quicksand;
     src: url(assets/fonts/quicksand.ttf);
     font-variation-settings: 'wght' 100;
 }
 
-:root {
+:root 
+{
     --primary-font: quicksand;
     --gray-custom: rgba(200, 200, 200, 0.8);
     --black-custom: rgba(0, 0, 0, 0.75);
 }
 
-* {
+* 
+{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -22,7 +25,9 @@
 
 h1 { font-size: 48pt; }
 
-h2, p { font-size: 10pt; }
+h2, p, input, textarea { font-size: 10pt; }
+
+textarea { resize: none; }
 
 .fixed { position: fixed; }
 
@@ -52,13 +57,27 @@ h2, p { font-size: 10pt; }
 
 .w-2em { width: 5em; }
 
+.w-max-800 { max-width: 800px; }
+
 .w-max-270 { max-width: 270px; }
 
+.w-max-200 { max-width: 200px; }
+
+.h-fit { height: fit-content; }
+
 .h-100vh { height: 100vh; }
+
+.h-75vh { height: 75vh; }
+
+.h-65vh { height: 65vh; }
+
+.h-45vh { height: 45vh; }
 
 .h-25vh { height: 25vh; }
 
 .h-20vh { height: 20vh; }
+
+.h-15vh { height: 15vh; }
 
 .h-12vh { height: 12vh; }
 
@@ -72,15 +91,25 @@ h2, p { font-size: 10pt; }
 
 .m-auto { margin: auto; }
 
-.m-w-auto { margin: 0 auto; }
+.m-h-auto { margin-top: auto; margin-bottom: auto; }
 
-.m-h-auto { margin: auto 0; }
+.m-w-auto { margin-right: auto; margin-left: auto; }
 
 .m-1 { margin: 1em; }
 
+.m-h-1 { margin-top: 1em; margin-bottom: 1em; }
+
+.m-w-1 { margin-left: 1em;  margin-right: 1em; }
+
+.m-r-1 { margin-right: 1em; }
+
 .m-b-1 { margin-bottom: 1em; }
 
-.m-r-1-b-1 { margin: 0 1em 1em 0; }
+.m-b-f5 { margin-bottom: 0.5em; }
+
+.p-12vh { padding: 12vh; }
+
+.p-2f25p { padding: 2.25%; }
 
 .p-1 { padding: 1em; }
 
@@ -88,27 +117,23 @@ h2, p { font-size: 10pt; }
 
 .p-f5 { padding: 0.5em; }
 
-.p-2f25p { padding: 2.25%; }
+.p-h-24vh { padding-top: 24vh; padding-bottom: 24vh; }
 
-.p-12vh { padding: 12vh; }
+.p-h-12vh { padding-top: 12vh; padding-bottom: 12vh; }
 
-.p-h-1 { padding: 1em 0; }
+.p-h-1 { padding-top: 1em; padding-bottom: 1em; }
 
-.p-h-f5 { padding: 0.5em 0; }
+.p-h-10vh { padding-top: 10vh; padding-bottom: 10vh; }
 
-.p-h-10vh { padding: 10vh 0; }
+.p-h-f5 { padding-top: 0.5em; padding-bottom: 0.5em; }
 
-.p-h-f5 { padding: 0.5em 0; }
+.p-w-1 { padding-left: 1em; padding-right: 1em; }
 
-.p-w-1 { padding: 0 1em; }
+.p-w-4 { padding-left: 4em; padding-right: 4em; }
 
 .p-t-1 { padding-top: 1em; }
 
 .p-b-1 { padding-bottom: 1em; }
-
-.p-h-24vh-w-2 { padding: 24vh 2em; }
-
-.p-h-12vh-w-2 { padding: 12vh 2em; }
 
 .inline { display: inline; }
 
@@ -135,6 +160,8 @@ ul.flex-col-ul-ui > li {flex-direction: column; }
 .align-center { align-content: center; }
 
 .align-items-center { align-items: center; }
+
+.align-items-end { align-items: flex-end; }
 
 .align-between { align-content: space-between; }
 
@@ -186,6 +213,8 @@ ul.align-items-center-ul-li > li { align-items: center; }
 
 .invert { transform: rotate(180deg); }
 
+.color-inherit { color: inherit; }
+
 .color-gray-hover:hover { color: gray; }
 
 .bg-transparent { background-color: transparent; }
@@ -236,12 +265,15 @@ ul.align-items-center-ul-li > li { align-items: center; }
 
 .z-3 { z-index: 3; }
 
-@media only screen and (min-width: 300px) and (min-height: 300px) {
-    h2, p { font-size: 12pt; }
+@media only screen and (min-width: 300px) and (min-height: 300px)
+{    
+    h2, p, input, textarea { font-size: 12pt; }
 
     .sm-fl-left { float: left; }
 
     .sm-w-60 { width: 60%; }
+
+    .sm-h-65vh { height: 65vh; }
 
     .sm-m-r-1-b-1 { margin: 0 1em 1em 0; }
 
@@ -256,8 +288,9 @@ ul.align-items-center-ul-li > li { align-items: center; }
     .sm-inline-block { display: inline-block; }
 }
 
-@media only screen and (min-width: 600px) and (min-height: 800px) {
-    h2, p { font-size: 18pt; }
+@media only screen and (min-width: 600px) and (min-height: 800px)
+{    
+    h2, p, input, textarea { font-size: 18pt; }
 
     .lg-w-50 { width: 50%; }
 
@@ -282,7 +315,8 @@ ul.align-items-center-ul-li > li { align-items: center; }
     .lg-grid-col-5 { grid-template-columns: repeat(5, 1fr); }
 }
 
-@media only screen and (min-width: 1200px) and (min-height: 800px) {
+@media only screen and (min-width: 1200px) and (min-height: 800px)
+{   
     .xl-flex { display: flex; }
 
     .xl-float-none { float: none; }
