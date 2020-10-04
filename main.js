@@ -19,12 +19,14 @@ const buttonDownloadClose = document.getElementById("buttonDownloadClose");
 const linkDownload = document.getElementById("linkDownload");
 const buttonApplications = document.getElementById("buttonApplications");
 const ulApplications = document.getElementById("ulApplications");
+const h2Email = document.getElementById("h2Email");
+const h2Phone = document.getElementById("h2Phone");
 const linesUrlMobile = "assets/images/lines-mobile.svg";
 const linesUrlDesktop = "assets/images/lines-desktop.svg";
 const divWelcomeTime = parseFloat(getComputedStyle(divWelcome).transitionDuration) * MS_TO_S;
 const linesTime = parseFloat(getComputedStyle(divTop).transitionDuration) * MS_TO_S;
 
-const divs = new Array();
+const divs = [];
 let divsTime;
 let indexCur = ZRO;
 let intervalCur;
@@ -123,14 +125,12 @@ divDownload.addEventListener("click", e => {
     divDownload.classList.toggle("closed");
 });
 [buttonResume, buttonDownloadClose, linkDownload].forEach(e => 
-    e.addEventListener("click", () => divDownload.classList.toggle("closed")));
-
-window.addEventListener("resize", () => {
-    divTop.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
-    divBot.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
-    buttonPaddleL.getElementsByClassName("imgPaddle")[ZRO].setAttribute("height", window.innerHeight * BUTTON_SCALE_PADDLE);
-    buttonPaddleR.getElementsByClassName("imgPaddle")[ZRO].setAttribute("height", window.innerHeight * BUTTON_SCALE_PADDLE);
-});
+    e.addEventListener("click", () => divDownload.classList.toggle("closed"))
+);
+    
+// ANTI-BOT-SCRAPING (hopefully)
+h2Email.textContent = `wenning${"."}justin${"@"}gmail${"."}com`;
+h2Phone.textContent = `(${714}) ${726}-${3180}`;
 
 document.addEventListener("wheel", e => {
     if (!divWelcome.classList.contains("closed")) return;
@@ -139,4 +139,11 @@ document.addEventListener("wheel", e => {
 
 document.addEventListener("dragstart", e => e.preventDefault());
 
+window.addEventListener("resize", () => {
+    divTop.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
+    divBot.setAttribute("src", window.innerWidth < W_MOBILE ? linesUrlMobile : linesUrlDesktop);
+    buttonPaddleL.getElementsByClassName("imgPaddle")[ZRO].setAttribute("height", window.innerHeight * BUTTON_SCALE_PADDLE);
+    buttonPaddleR.getElementsByClassName("imgPaddle")[ZRO].setAttribute("height", window.innerHeight * BUTTON_SCALE_PADDLE);
+});
+    
 window.dispatchEvent(new Event("resize"));
