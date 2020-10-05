@@ -173,6 +173,8 @@ ul.flex-col-ul-ui > li {flex-direction: column; }
 
 .justify-center { justify-content: center; }
 
+.justify-end { justify-content: flex-end; }
+
 .justify-between { justify-content: space-between; }
 
 .justify-around { justify-content: space-around;}
@@ -232,6 +234,8 @@ ul.align-items-center-ul-li > li { align-items: center; }
 .bg-black { background-color: var(--black-custom); }
 
 .bg-gray { background-color: var(--gray-custom); }
+
+.bg-yellow { background-color: yellow; }
 
 .bg-gray-active:active { background-color: var(--gray-custom); }
 
