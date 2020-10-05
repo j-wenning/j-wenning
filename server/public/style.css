@@ -133,7 +133,11 @@ textarea { resize: none; }
 
 .p-t-1 { padding-top: 1em; }
 
+.p-t-0 { padding-top: 0; }
+
 .p-b-1 { padding-bottom: 1em; }
+
+.p-b-0 { padding-bottom: 0; }
 
 .inline { display: inline; }
 
@@ -215,6 +219,8 @@ ul.align-items-center-ul-li > li { align-items: center; }
 
 .color-inherit { color: inherit; }
 
+.color-darkred { color: darkred; }
+
 .color-gray-hover:hover { color: gray; }
 
 .bg-transparent { background-color: transparent; }
@@ -225,9 +231,15 @@ ul.align-items-center-ul-li > li { align-items: center; }
 
 .bg-black { background-color: var(--black-custom); }
 
+.bg-gray { background-color: var(--gray-custom); }
+
 .bg-gray-active:active { background-color: var(--gray-custom); }
 
 .selectable { cursor: pointer; }
+
+.overflow-scroll { overflow-y: scroll; }
+
+.whitespace-pre { white-space: pre; }
 
 .ease-f2 { transition: all 200ms ease; }
 
