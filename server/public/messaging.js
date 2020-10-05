@@ -88,7 +88,7 @@ formMessage.addEventListener('submit', e => {
 });
 
 formMessage.addEventListener('keydown', e => {
-    if (!e.shiftKey && e.code == 'Enter' && isConnected) {
+    if (!e.shiftKey && e.code === 'Enter' && isConnected) {
         formMessage.dispatchEvent(new Event('submit'));
     }
 });
