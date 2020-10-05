@@ -60,22 +60,18 @@ pAuthor.addEventListener('click', () => {
 });
 
 buttonConnect.addEventListener('click', () => {
+    const socket = io(`wss://jwenning.digital`);
+    socket.on('message', data => {
+        const { author, timeStamp, msgContent } = data;
+        dispatchNewMsg(false, author, timeStamp, msgContent);
+    });
+    socketSend = (author, timeStamp, msgContent) => socket.send({ author, timeStamp, msgContent });
+    socketNameChange = author => socket.emit('nameChange', { author });
+    socketNameChange(author);
     buttonConnect.classList.add('closed');
-    fetch('port')
-        .then(res => res.json())
-        .then(data => {
-            const socket = io(`ws://localhost:${data.port}`);
-            socket.on('message', data => {
-                const { author, timeStamp, msgContent } = data;
-                dispatchNewMsg(false, author, timeStamp, msgContent);
-            });
-            socketSend = (author, timeStamp, msgContent) => socket.send({ author, timeStamp, msgContent });
-            socketNameChange = author => socket.emit('nameChange', { author });
-            socketNameChange(author);
-            buttonSubmit.classList.remove('closed');
-            spanAuthor.parentElement.TEXT_NODE = spanAuthor.parentElement.textContent.replace('Connecting', 'Connected');
-            isConnected = true;
-        }).catch(err => console.error(err));
+    buttonSubmit.classList.remove('closed');
+    spanAuthor.parentElement.TEXT_NODE = spanAuthor.parentElement.textContent.replace('Connecting', 'Connected');
+    isConnected = true;
 });
 
 formMessage.addEventListener('submit', e => {

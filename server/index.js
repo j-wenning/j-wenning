@@ -80,8 +80,6 @@ const getInput = () => rl.question('', ans => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/port', (req, res) => res.json({ 'port': process.env.PORT }));
-
 app.use((err, req, res, next) => {
     const error = err || new Err();
     if (!err.msg) return res.statusCode(error.code);
