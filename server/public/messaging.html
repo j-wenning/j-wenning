@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+            <title>jWenning - Messaging</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="title" content="jWenning Digital - Messaging">
+            <meta name="author" content="Justin Wenning">
+            <meta name="image" content="https://jwenning.digital/assets/images/favicon.ico">
+            <meta name="description" content="Justin Wenning's direct messaging channel">
+            <meta name="url" content="https://jwenning.digital/messaging">
+            <meta name="robots" content="index, follow, noarchive">
+            <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+            <link rel="stylesheet" href="style.css" type="text/css">
+        </head>
+    </head>
+    <body>
+        <div id="divModal" class="fixed h-100vh w-100 flex align-items-center justify-center bg-black">
+            <div class="p-1 bg-white">
+                <h2 id="h2Author" class="m-b-1">Hi!  Before you enter, I just need to get your name:</h2>
+                <form id="formAuthor" class="flex">
+                    <input
+                        id="inputAuthor"
+                        type="text"
+                        name="author"
+                        class="w-100 m-r-1 p-f5 border-solid border-black border-1f5 bg-white">
+                    <button
+                        type=submit
+                        class="p-f5 border-solid border-black border-1f5 bg-white color-gray-hover selectable"
+                        ><p class="color-inherit">submit</p></button>
+                </form>
+            </div>
+        </div>
+        <div class="h-100vh w-100 w-max-800 m-w-auto p-1 flex flex-col justify-center">
+            <div id="divMessages" class="h-65vh m-b-1 border-solid border-black border-w-1f5 overflow-scroll"></div>
+            <form id="formMessage" class="flex flex-wrap align-items-end justify-center">
+                <textarea name="message" class="h-15vh w-100 m-b-1 p-f5" placeholder="Send me a direct message"></textarea>
+                <div class="w-100 flex align-items-center justify-between">
+                <p id="pAuthor">Connecting as: <span id="spanAuthor"></span></p>
+                <button
+                    id="buttonConnect"
+                    type="button"
+                    class="h-fit p-h-f5 p-w-1 lg-p-w-4 bg-white border-solid border-black border-w-1f5 color-darkred color-gray-hover selectable"
+                    ><p class="color-inherit">connect</p></button>
+                <button
+                    id="buttonSubmit"
+                    type="submit"
+                    class="h-fit p-h-f5 p-w-1 lg-p-w-4 bg-white border-solid border-black border-w-1f5 color-gray-hover selectable closed"
+                    ><p class="color-inherit">send</p></button>
+                </div>
+            </form>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="messaging.js"></script>
+    </body>
+</html>
