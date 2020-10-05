@@ -60,7 +60,8 @@ pAuthor.addEventListener('click', () => {
 });
 
 buttonConnect.addEventListener('click', () => {
-    const socket = io(`wss://jwenning.digital`);
+    // const socket = io('wss://jwenning.digital');
+    const socket = io('wss://jwenning.digital/api');
     socket.on('message', data => {
         const { author, timeStamp, msgContent } = data;
         dispatchNewMsg(false, author, timeStamp, msgContent);

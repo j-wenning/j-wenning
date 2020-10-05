@@ -28,7 +28,7 @@ notification.volume = NOTIFICATION_VOL;
 document.getElementById('formLogin').addEventListener('submit', e => {
     const data = new FormData(e.currentTarget);
     e.preventDefault();
-    fetch('adminlogin', {
+    fetch('/api/adminlogin', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -40,7 +40,8 @@ document.getElementById('formLogin').addEventListener('submit', e => {
             while (divMessages.lastElementChild !== divMessages.firstElementChild) {
                 divMessages.removeChild(divMessages.lastElementChild);
             }
-            sock = io('wss://jwenning.digital');
+            // sock = io('wss://jwenning.digital');
+            sock = io('wss://jwenning.digital/api');
             sock.on('message', data => appendMsg(data));
             sendMsg = data => sock.send(data);
         })  .catch(err => console.error(err));
