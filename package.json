@@ -1,7 +1,7 @@
 {
-  "name": "j-wenning",
+  "name": "jWenning",
   "version": "1.0.0",
-  "description": "",
+  "description": "My portfolio site",
   "main": "index.js",
   "dependencies": {
     "dotenv": "^8.2.0",
