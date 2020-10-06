@@ -85,9 +85,11 @@ const getInput = input => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api/socket.io', express.static(path.join(__dirname, '..', 'node_modules', 'socket.io-client', 'dist')));
+
 app.use(express.json());
 
-app.post('/adminlogin', (req, res, next) => {
+app.post('/api/adminlogin', (req, res, next) => {
     const { u, p } = req.body;
     if (u !== process.env.ADMIN_USER || p !== process.env.ADMIN_PASS) {
         return res.redirect(301, 'https://jwenning.digital');
