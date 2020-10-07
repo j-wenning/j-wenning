@@ -9,7 +9,7 @@ const randStr = () => Buffer.from(Math.floor(Math.random() * Number.MAX_VALUE).t
 class SessionManager {
     constructor() {
         try {
-            this.sessions = JSON.parse(readFile());
+            this.sessions = readFile();
         } catch(err) {
             if (err.code === 'ENOENT') {
                 initFile();
