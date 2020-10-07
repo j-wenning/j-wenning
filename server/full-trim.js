@@ -1,0 +1,1 @@
+module.exports = str => str.trim().replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').replace(/\s{3,}/g,'  ');
