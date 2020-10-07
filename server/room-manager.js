@@ -12,5 +12,5 @@ module.exports = class RoomManager {
     getRoomCount() { return this.rooms.length; }
     updateRoomAuthor(index, author) { this.rooms[index].author = author; }
     deleteRoom(index) { this.rooms[index].isActive = false; }
-    refreshRooms() { this.rooms = this.rooms.filter(room => room.isActive).map((room, index) => room.index = index); }
+    refreshRooms() { this.rooms = this.rooms.filter(room => room.isActive).map((room, index) => { room.index = index; return room; }); }
 };
