@@ -12,9 +12,11 @@ let sleepTimeout;
 
 const appendMsg = data => {
     const { author, timeStamp, msgContent } = data;
+    const recipient = data.recipient;
     const el = document.createElement('pre');
     divMessages.appendChild(el);
-    el.textContent = `${author} ${new Date(timeStamp).toLocaleString()}\n${JSON.stringify(msgContent, null, 2)}`;
+    el.textContent = `${author} ${new Date(timeStamp).toLocaleString()}${recipient ? ' => ' + recipient: ''}\n${msgContent}`;
+    divMessages.scrollTop = divMessages.scrollHeight;
     if (isSleep) notification.play();
 };
 const refreshSleepTimeout = () => {
@@ -28,22 +30,19 @@ notification.volume = NOTIFICATION_VOL;
 document.getElementById('formLogin').addEventListener('submit', e => {
     const data = new FormData(e.currentTarget);
     e.preventDefault();
-    fetch('adminlogin', {
+    fetch('/admin', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ u: data.get('u'), p: data.get('p') })
     })  .then(res => res.json())
         .then (data => {
-            document.getElementById('divHistory').textContent = JSON.stringify(JSON.parse(data), null, 2);
-            while (divMessages.lastElementChild !== divMessages.firstElementChild) {
-                divMessages.removeChild(divMessages.lastElementChild);
-            }
-            sock = io('wss://jwenning.digital');
+            while(divMessages.firstElementChild) divMessages.removeChild(divMessages.lastElementChild);
+            JSON.parse(data).forEach(item => appendMsg(item));
+            sock = io('wss://jwenning.digital', { query: { cookie: document.cookie } });
             sock.on('message', data => appendMsg(data));
             sendMsg = data => sock.send(data);
         })  .catch(err => console.error(err));
+    e.currentTarget.reset();
 });
 
 formMessage.addEventListener('keydown', e =>{
