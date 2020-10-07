@@ -18,6 +18,7 @@ module.exports = class InputManager {
         return this.notifyInputInvalid(strInput);
     }
     showList() {
+        this.rMgr.refreshRooms();
         this.io.to('admin').send(msg('System', this.rMgr.getRooms().map(room => `${room.index}: ${room.author}` ).join('\n')));
         return null;
     }
