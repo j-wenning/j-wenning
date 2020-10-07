@@ -9,12 +9,12 @@ const randStr = () => Buffer.from(Math.floor(Math.random() * Number.MAX_VALUE).t
 class SessionManager {
     constructor() {
         try {
-            this.sessions = readFile();
+            this.sessions = JSON.parse(readFile());
         } catch(err) {
             if (err.code === 'ENOENT') {
                 initFile();
                 this.sessions = readFile();
-            }
+            } else this.sessions = {};
         }
         global.setInterval(() => {
             const time = Date.now();
