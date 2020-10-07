@@ -10,6 +10,7 @@ const logManager = require('./log-manager');
 const sessionManager = require('./session-manager');
 const socketManager = require('./socket-manager')(io, sessionManager, logManager);
 const uriParser = require('./uri-parser');
+const msg = require('./msg');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -40,8 +41,8 @@ app.post('/admin', (req, res, next) => {
 
 app.use((err, req, res, next) => {
     const error = err || new Error();
-    if (!error.msg) return res.sendStatus(error.code);
-    res.status(error.code).json({ 'code': error.code, 'msg': error.msg });
+    if (!error.message) return res.sendStatus(error.code);
+    res.status(error.code).json(JSON.stringify(msg('System', error.code + ': ' + error.message)));
 });
 
 server.listen(process.env.PORT, null, () => console.log(`Listening on port ${process.env.PORT}`));
