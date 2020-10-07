@@ -20,6 +20,7 @@ let isSleeping = false;
 let author = 'anonymous';
 let socketSend;
 let socketNameChange;
+let socketDisconnect;
 let timeoutSleep;
 
 const fullTrim = str => str.trim().replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').replace(/\s{3,}/g,'  ');
@@ -67,6 +68,7 @@ buttonConnect.addEventListener('click', () => {
     });
     socketSend = (author, timeStamp, msgContent) => socket.send({ author, timeStamp, msgContent });
     socketNameChange = author => socket.emit('nameChange', { author });
+    socketDisconnect = () => socket.close();
     buttonConnect.classList.add('closed');
     buttonSubmit.classList.remove('closed');
     spanAuthor.parentElement.TEXT_NODE = spanAuthor.parentElement.textContent.replace('Connecting', 'Connected');
@@ -139,3 +141,5 @@ document.addEventListener('mousemove', () => refreshSleepTimeout());
 document.addEventListener('keydown', () => refreshSleepTimeout());
 window.addEventListener('focus', () => refreshSleepTimeout());
 window.addEventListener('blur', () => isSleeping = true);
+window.addEventListener('beforeunload', () => window.dispatchEvent(new Event('unload')));
+window.addEventListener('unload', () => { if(socketDisconnect) socketDisconnect(); });
