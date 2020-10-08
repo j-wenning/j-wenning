@@ -18,12 +18,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 app.use('/', (req, res, next) => {
-    req.cookies = Object.assign(req.cookies || {}, uriParser(req.headers.cookie));
-    const id = req.cookies.id || sessionManager.createSession();
-    req.cookies.id = id;
-    sessionManager.updateSession(id, { expiry: Date.now() + parseInt(process.env.SESSION_EXPIRY) });
-    res.cookie('id', id, { 
-        expires: new Date(sessionManager.getSession(id).expiry),
+    req.cookies = uriParser(req.headers.cookie);
+    req.cookies.id = sessionManager.updateSession(
+        req.cookies.id,
+        { expiry: Date.now() + parseInt(process.env.SESSION_EXPIRY) }
+    );
+    res.cookie('id', req.cookies.id, { 
+        expires: new Date(sessionManager.getSession(req.cookies.id).expiry),
         secure: process.env.PROD_MODE !== 'DEV',
     });
     next();

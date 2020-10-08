@@ -39,8 +39,14 @@ class SessionManager {
         this.sessions[id].expiry = Date.now() + parseInt(process.env.SESSION_EXPIRY);
         return id;
     }
-    getSession(id) { return id ? this.sessions[id] || {} : {}; }
-    updateSession(id, data) { Object.assign(this.sessions[id], data); }
+    getSession(id) { return this.sessions[id] || {}; }
+    updateSession(id, data) {
+        if (this.sessions[id]) {
+            Object.assign(this.sessions[id], data);
+            return id;
+        }
+        return this.createSession(data);
+    }
     deleteSession(id) { delete this.sessions[id]; }
 };
 
