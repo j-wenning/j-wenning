@@ -16,6 +16,7 @@ const onUserConnect = (io, socket, roomManager, logManager, stateObject) => {
     const room = roomManager.createRoom(socket.id, socket.handshake.query.author);
     io.to(socket.id).send(msg('System', `Justin is currently ${stateObject.isOnline ? 'online' : 'offline'}.`));
     socket.on('message', data => {
+        if (!(data.author && data.timeStamp && data.msgContent)) return;
         logManager.recordItem(data);
         io.to('admin').send(data);
     });
