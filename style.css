@@ -606,6 +606,16 @@ b { font-weight: 700; }
 
     .md\:text-left { text-align: left; }
 
+    .md\:grid-col-3 { grid-template-columns: repeat(3, minmax(min-content, 1fr)); }
+
+    .md\:grid-col-4 { grid-template-columns: repeat(4, minmax(min-content, 1fr)); }
+
+    .md\:grid-col-5 { grid-template-columns: repeat(5, minmax(min-content, 1fr)); }
+
+    .md\:grid-col-6 { grid-template-columns: repeat(6, minmax(min-content, 1fr)); }
+
+    .md\:grid-col-7 { grid-template-columns: repeat(7, minmax(min-content, 1fr)); }
+
     .text-3xl { font-size: 36pt; }
 
     .text-2xl { font-size: 30pt; }
