@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jWenning Digital</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <header id="menu" class="fixed top-0 w-full mw-screen z-1 transition-ease transition-0.25 menu-translate-y">
+        <nav class="flex flex-col items1-center text-center color-white bg-blue">
+            <ul class="flex flex-col list-none">
+                <li class="mt-1/2">
+                    <button
+                        id="aboutButton"
+                        type="button"
+                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        >About</button>
+                </li>
+                <li class="mt-1/2">
+                    <button
+                        id="skillsButton"
+                        type="button"
+                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        >Skills</button>
+                </li>
+                <li class="mt-1/2">
+                    <button
+                        id="appsButton"
+                        type="button"
+                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        >Applications</button>
+                </li>
+                <li class="my-1/2">
+                    <button
+                        id="infoButton"
+                        type="button"
+                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        >Additional Info</button>
+                </li>
+            </ul>
+            <button
+                id="menuButton"
+                type="button"
+                class="w-full mw-4 m-auto my-1/2 px-1 border-solid border-1 radius-15 border-white bg-blue-ah cursor-point">
+                <hr class="mt-1/2 mb-1/4 border-solid border-1">
+                <hr class="mb-1/2 mt-1/4 border-solid border-1">
+            </button>
+        </nav>
+        <button id="menuCloser" class="w-full h-screen hidden"></button>
+    </header>
+    <main>
+        <section id="aboutSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
+            <div class="mh-screen p-1 bg-white swipe-translate-x">
+                <div class="text-center">
+                    <img src="assets/images/headshot.jpg" alt="" class="h-10">
+                </div>
+                <h1 class="my-1/2 bold text-24">About</h1>
+                <p class="mb-1 pb-1">
+                    My name is <b>Justin Wenning</b>, and I'm a <b>full stack developer</b> from Southern California, with
+                    skills in both <b>MEAN</b> and <b>LAMP</b> stacks, as well as other technologies and languages from
+                    within the development space.  I'm actively searching for experiences that will challenge me and allow
+                    me to expand my current repetoir in order to become a more experienced and capable developer.  Earlier
+                    in 2020 I attended a <a href="https://learningfuze.com/" target="blank_" class="color-lavender">
+                    <b>LearningFuze</b> coding bootcamp</a>, which introduced me to technologies such as <b>JavaScript</b>,
+                    <b>HTML</b>, <b>CSS</b>, and <b>Postgres</b>; this built upon my previous experiences with <b>C++</b>
+                    and <b>C#</b> that I gained through college and personal study.  I believe I can be an incredible asset
+                    to any team, and I'm currently <b>available</b> for career discussion.
+                </p>
+            </div>
+        </section>
+        <section id="skillsSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
+            <div class="mh-screen p-1 bg-white swipe-translate-x">
+                <h1 class="my-1/2 bold text-24">Skills</h1>
+                <ul class="ml-1 mb-1 pl-1/2">
+                    <li>
+                        <h2>Leadership</h2>
+                        <ul class="ml-1 pl-1/2">
+                            <li>Project lead for Art-Spread and other LearningFuze projects</li>
+                            <li>Strongly-voiced developer & coordinator during Prisme internship</li>
+                            <li>Independently driven, willing to listen to advice & mentorship</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Collaboration</h2>
+                        <ul class="ml-1 pl-1/2">
+                            <li>Team player with an ear for anyone willing to speak</li>
+                            <li>Always ready to take on tasks for the benefit of the team</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>Communication</h2>
+                        <ul class="ml-1 pl-1/2">
+                            <li>Active responder to messages and emails of varying importance</li>
+                            <li>Confident in asking questions and looking for guidance or assistance</li>
+                            <li>Effective planner and coordinator</li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="mb-1 border-solid border-1">
+                <ul class="pt-1 grid grid-col-3 w-full list-none bold color-lavender">
+                    <li class="text-center pb-1">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/" target="_blank">
+                            <img src="assets/images/brand/js.png" alt="" name="js" class="w-4/5">
+                            <label for="js" class="block text-10">JavaScript</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/" target="_blank">
+                            <img src="assets/images/brand/csharp.png" alt="" name="csharp" class="w-4/5">
+                            <label for="csharp" class="block text-10">C#</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://www.cplusplus.com/info/description/" target="_blank">
+                            <img src="assets/images/brand/cpp.png" alt="" name="cpp" class="w-4/5">
+                            <label for="cpp" class="block text-10">C++</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/" target="_blank">
+                            <img src="assets/images/brand/html5.png" alt="" name="html5" class="w-4/5">
+                            <label for="html5" class="block text-10">HTML5</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/" target="_blank">
+                            <img src="assets/images/brand/css3.png" alt="" name="css3" class="w-4/5">
+                            <label for="css3" class="block text-10">CSS3</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://www.npmjs.com/" target="_blank">
+                            <img src="assets/images/brand/npm.png" alt="" name="npm" class="w-4/5">
+                            <label for="npm" class="block text-10">npm</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://nodejs.org/about/" target="_blank">
+                            <img src="assets/images/brand/nodejs.png" alt="" name="nodejs" class="w-4/5">
+                            <label for="nodejs" class="block text-10">Node.js</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://www.postgresql.org/about/" target="_blank">
+                            <img src="assets/images/brand/postgres.png" alt="" name="postgres" class="w-4/5">
+                            <label for="postgres" class="block text-10">PostgreSQL</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://www.mongodb.com/what-is-mongodb" target="_blank">
+                            <img src="assets/images/brand/mongodb.png" alt="" name="mongodb" class="w-4/5">
+                            <label for="mongodb" class="block text-10">MongoDB</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://expressjs.com/" target="_blank">
+                            <img src="assets/images/brand/express.png" alt="" name="express" class="w-4/5">
+                            <label for="express" class="block text-10">Express.js</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://v3.vuejs.org/guide/introduction.html/" target="_blank">
+                            <img src="assets/images/brand/vuejs.png" alt"" name="vuejs" class="w-4/5">
+                            <label for="vuejs" class="block text-10">Vue.js</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://reactjs.org/" target="_blank">
+                            <img src="assets/images/brand/react.png" alt="" name="react" class="w-4/5">
+                            <label for="react" class="block text-10">React</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://tailwindcss.com/" target="_blank">
+                            <img src="assets/images/brand/tailwindcss.png" alt="" name="tailwindcss" class="w-4/5">
+                            <label for="tailwindcss" class="block text-10">Tailwind CSS</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://getbootstrap.com/docs/4.5/about/overview/" target="_blank">
+                            <img src="assets/images/brand/bootstrap4.png" alt="" name="bootstrap4" class="w-4/5">
+                            <label for="bootstrap4" class="block text-10">Bootstrap 4</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://jquery.com/" target="_blank">
+                            <img src="assets/images/brand/jquery.png" alt="" name="jquery" class="w-4/5">
+                            <label for="jquery" class="block text-10">jQuery</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://webpack.js.org/" target="_blank">
+                            <img src="assets/images/brand/webpack.png" alt="" name="webpack" class="w-4/5">
+                            <label for="webpack" class="block text-10">Webpack</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://babeljs.io/docs/en/" target="_blank">
+                            <img src="assets/images/brand/babel.png" alt="" name="babel" class="w-4/5">
+                            <label for="babel" class="block text-10">Babel</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://unity.com/" target="_blank">
+                            <img src="assets/images/brand/unity.png" alt="" name="unity" class="w-4/5">
+                            <label for="unity" class="block text-10">Unity</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://aws.amazon.com/what-is-aws/" target="_blank">
+                            <img src="assets/images/brand/aws.png" alt="" name="aws" class="w-4/5">
+                            <label for="aws" class="block text-10">AWS</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://git-scm.com/" target="_blank">
+                            <img src="assets/images/brand/git.png" alt="" name="git" class="w-4/5">
+                            <label for="git" class="block text-10">git</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://github.com/" target="_blank">
+                            <img src="assets/images/brand/github.png" alt="" name="github" class="w-4/5">
+                            <label for="github" class="block text-10">GitHub</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://slack.com/about" target="_blank">
+                            <img src="assets/images/brand/slack.png" alt="" name="slack" class="w-4/5">
+                            <label for="slack" class="block text-10">Slack</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://zoom.us/" target="_blank">
+                            <img src="assets/images/brand/zoom.png" alt="" name="zoom" class="w-4/5">
+                            <label for="zoom" class="block text-10">Zoom</label>
+                        </a>
+                    </li>
+                    <li class="text-center pb-1">
+                        <a href="https://ubuntu.com/about" target="_blank">
+                            <img src="assets/images/brand/ubuntu.png" alt="" name="ubuntu" class="w-4/5">
+                            <label for="ubuntu" class="block text-10">Ubuntu</label>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="appsSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
+            <div class="mh-screen p-1 bg-white swipe-translate-x">
+                <h1 class="my-1/2 bold text-24">Applications</h1>
+                <button
+                    type="button"
+                    class="w-full mt-1 mb-3/4 pb-1/4 text-left border-solid border-bottom cursor-point">
+                    <h2 class="bold text-18">Connect</h2>
+                </button>
+                <div class="transition-ease transition-0.25 origin-top scale-y-0 hidden">
+                    <div class="text-center mb-1">
+                        <img src="assets/images/sites/connect.png" alt="" class="h-7">
+                    </div>
+                    <h3>Key Features</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>Resizable board</li>
+                        <li>Adjustable win condition</li>
+                        <li>Support for 2-4 players</li>
+                        <li>Pausable shot clock</li>
+                    </ul>
+                    <h3>Technologies</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                    </ul>
+                    <h3>Challenges</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>Vanilla DOM manipulation</li>
+                        <li>Containerization &amp; Organization of behaviour</li>
+                        <li>2D Array/Matrix traversal</li>
+                        <li>Manual state management</li>
+                    </ul>
+                </div>
+                <button
+                    type="button"
+                    class="w-full mt-1 mb-3/4 pb-1/4 text-left border-solid border-bottom cursor-point">
+                    <h2 class="bold text-18">Plush Stop</h2>
+                </button>
+                <div class="transition-ease transition-0.25 origin-top scale-y-0 hidden">
+                    <div class="text-center mb-1">
+                        <img src="assets/images/sites/plush-stop.png" alt="" class="h-7">
+                    </div>
+                    <h3>Key Features</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>Item sorting</li>
+                        <li>Cart sessions</li>
+                        <li>Checkout window</li>
+                    </ul>
+                    <h3>Technologies</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>JavaScript</li>
+                        <li>PostgreSQL</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>React</li>
+                        <li>Bootstrap 4</li>
+                        <li>Webpack</li>
+                        <li>Babel</li>
+                    </ul>
+                    <h3>Challenges</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>Meaningful API endpoints</li>
+                        <li>Efficient relational database storage & retrieval</li>
+                        <li>Input validation</li>
+                    </ul>
+                </div>
+                <button
+                    type="button"
+                    class="w-full mt-1 mb-3/4 pb-1/4 text-left border-solid border-bottom cursor-point">
+                    <h2 class="bold text-18">Art-Spread</h2>
+                </button>
+                <div class="transition-ease transition-0.25 origin-top scale-y-0 hidden">
+                    <div class="text-center mb-1">
+                        <img src="assets/images/sites/art-spread.png" alt="" class="h-7">
+                    </div>
+                    <h3>Key Features</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>Reddit integration</li>
+                        <li>Media, post & publication storage</li>
+                        <li>Account management</li>
+                    </ul>
+                    <h3>Technologies</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>JavaScript</li>
+                        <li>PostgreSQL</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>React</li>
+                        <li>Bootstrap 4</li>
+                        <li>Webpack</li>
+                        <li>Babel</li>
+                    </ul>
+                    <h3>Challenges</h3>
+                    <ul class="ml-1 mb-1 pl-1/2">
+                        <li>Team coordination & project planning</li>
+                        <li>Complex API and database integrations</li>
+                        <li>Response time management</li>
+                        <li>Blob storage</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="infoSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
+            <div class="mh-screen p-1 bg-white swipe-translate-x">
+                <h1 class="my-1/2 bold text-24">Additional Info</h1>
+                <h2 class="mt-1 text-18">Find me</h2>
+                <ul class="list-none color-lavender">
+                    <li class="mt-1/2">
+                        <a href="https://github.com/j-wenning/" target="_blank">GitHub</a>
+                    </li>
+                    <li class="mt-1/2">
+                        <a href="https://www.linkedin.com/in/j-wenning/" target="_blank">LinkedIn</a>
+                    </li>
+                </ul>
+                <h2 class="mt-1 text-18">Contact me</h2>
+                <ul class="list-none color-lavender">
+                    <li class="mt-1/2">
+                        <a id="phone" href="tel:"></a>
+                    </li>
+                    <li class="mt-1/2">
+                        <a id="mail" href="mailto:"></a>
+                    </li>
+                </ul>
+                <h2 class="mt-1 text-18">Downloads</h2>
+                <ul class="list-none color-lavender">
+                    <li class="mt-1/2">
+                        <a href="assets/Justin_Wenning_Resume.pdf" download>Resume</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
