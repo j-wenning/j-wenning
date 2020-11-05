@@ -6,56 +6,56 @@
     <title>jWenning Digital</title>
     <link href="style.css" type="text/css" rel="stylesheet">
 </head>
-<body>
-    <header id="menu" class="fixed top-0 w-full mw-screen z-1 transition-ease transition-0.25 menu-translate-y">
-        <nav class="flex flex-col items1-center text-center color-white bg-blue">
+<body class="lg:flex">
+    <header id="menu" class="fixed lg:static top-0 w-full lg:w-20 mw-screen z-1 lg:m-0 transition-ease transition-0.25 menu-translate-y">
+        <nav class="lg:sticky lg:top-0 lg:h-screen flex flex-col items1-center text-center color-white bg-blue">
             <ul class="flex flex-col list-none">
-                <li class="mt-1/2">
+                <li class="mt-1/2 lg:m-1">
                     <button
                         id="aboutButton"
                         type="button"
-                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        class="w-3/4 p-1/2 lg:p-1 cursor-point bg-blue-ah forSection"
                         >About</button>
                 </li>
-                <li class="mt-1/2">
+                <li class="mt-1/2 lg:m-1">
                     <button
                         id="skillsButton"
                         type="button"
-                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        class="w-3/4 p-1/2 lg:p-1 cursor-point bg-blue-ah forSection"
                         >Skills</button>
                 </li>
-                <li class="mt-1/2">
+                <li class="mt-1/2 lg:m-1">
                     <button
                         id="appsButton"
                         type="button"
-                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        class="w-3/4 p-1/2 lg:p-1 cursor-point bg-blue-ah forSection"
                         >Applications</button>
                 </li>
-                <li class="my-1/2">
+                <li class="my-1/2 lg:m-1">
                     <button
                         id="infoButton"
                         type="button"
-                        class="w-3/4 p-1/2 cursor-point bg-blue-ah forSection"
+                        class="w-3/4 p-1/2 lg:p-1 cursor-point bg-blue-ah forSection"
                         >Additional Info</button>
                 </li>
             </ul>
             <button
                 id="menuButton"
                 type="button"
-                class="w-full mw-4 m-auto my-1/2 px-1 border-solid border-1 radius-15 border-white bg-blue-ah cursor-point">
+                class="w-full mw-4 m-auto my-1/2 px-1 border-solid border-1 radius-15 border-white bg-blue-ah cursor-point lg:hidden">
                 <hr class="mt-1/2 mb-1/4 border-solid border-1">
                 <hr class="mb-1/2 mt-1/4 border-solid border-1">
             </button>
         </nav>
-        <button id="menuCloser" class="w-full h-screen hidden"></button>
+        <button id="menuCloser" class="w-full h-screen hidden lg:hidden"></button>
     </header>
-    <main>
+    <main class="w-full mw-50 m-auto">
         <section id="aboutSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
             <div class="mh-screen p-1 bg-white swipe-translate-x">
                 <div class="text-center">
                     <img src="assets/images/headshot.jpg" alt="" class="h-10">
                 </div>
-                <h1 class="my-1/2 bold text-24">About</h1>
+                <h1 class="my-1/2 bold text-xl">About</h1>
                 <p class="mb-1 pb-1">
                     My name is <b>Justin Wenning</b>, and I'm a <b>full stack developer</b> from Southern California, with
                     skills in both <b>MEAN</b> and <b>LAMP</b> stacks, as well as other technologies and languages from
@@ -71,7 +71,7 @@
         </section>
         <section id="skillsSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
             <div class="mh-screen p-1 bg-white swipe-translate-x">
-                <h1 class="my-1/2 bold text-24">Skills</h1>
+                <h1 class="my-1/2 bold text-lg">Skills</h1>
                 <ul class="ml-1 mb-1 pl-1/2">
                     <li>
                         <h2>Leadership</h2>
@@ -98,149 +98,149 @@
                     </li>
                 </ul>
                 <hr class="mb-1 border-solid border-1">
-                <ul class="pt-1 grid grid-col-3 w-full list-none bold color-lavender">
+                <ul class="pt-1 grid grid-col-3 sm:grid-col-4 md:grid-col-5 lg:grid-col-6 w-full list-none bold color-lavender">
                     <li class="text-center pb-1">
                         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/" target="_blank">
                             <img src="assets/images/brand/js.png" alt="" name="js" class="w-4/5">
-                            <label for="js" class="block text-10">JavaScript</label>
+                            <label for="js" class="block text-sm">JavaScript</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/" target="_blank">
                             <img src="assets/images/brand/csharp.png" alt="" name="csharp" class="w-4/5">
-                            <label for="csharp" class="block text-10">C#</label>
+                            <label for="csharp" class="block text-sm">C#</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://www.cplusplus.com/info/description/" target="_blank">
                             <img src="assets/images/brand/cpp.png" alt="" name="cpp" class="w-4/5">
-                            <label for="cpp" class="block text-10">C++</label>
+                            <label for="cpp" class="block text-sm">C++</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/" target="_blank">
                             <img src="assets/images/brand/html5.png" alt="" name="html5" class="w-4/5">
-                            <label for="html5" class="block text-10">HTML5</label>
+                            <label for="html5" class="block text-sm">HTML5</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/" target="_blank">
                             <img src="assets/images/brand/css3.png" alt="" name="css3" class="w-4/5">
-                            <label for="css3" class="block text-10">CSS3</label>
+                            <label for="css3" class="block text-sm">CSS3</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://www.npmjs.com/" target="_blank">
                             <img src="assets/images/brand/npm.png" alt="" name="npm" class="w-4/5">
-                            <label for="npm" class="block text-10">npm</label>
+                            <label for="npm" class="block text-sm">npm</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://nodejs.org/about/" target="_blank">
                             <img src="assets/images/brand/nodejs.png" alt="" name="nodejs" class="w-4/5">
-                            <label for="nodejs" class="block text-10">Node.js</label>
+                            <label for="nodejs" class="block text-sm">Node.js</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://www.postgresql.org/about/" target="_blank">
                             <img src="assets/images/brand/postgres.png" alt="" name="postgres" class="w-4/5">
-                            <label for="postgres" class="block text-10">PostgreSQL</label>
+                            <label for="postgres" class="block text-sm">PostgreSQL</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://www.mongodb.com/what-is-mongodb" target="_blank">
                             <img src="assets/images/brand/mongodb.png" alt="" name="mongodb" class="w-4/5">
-                            <label for="mongodb" class="block text-10">MongoDB</label>
+                            <label for="mongodb" class="block text-sm">MongoDB</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://expressjs.com/" target="_blank">
                             <img src="assets/images/brand/express.png" alt="" name="express" class="w-4/5">
-                            <label for="express" class="block text-10">Express.js</label>
+                            <label for="express" class="block text-sm">Express.js</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://v3.vuejs.org/guide/introduction.html/" target="_blank">
                             <img src="assets/images/brand/vuejs.png" alt"" name="vuejs" class="w-4/5">
-                            <label for="vuejs" class="block text-10">Vue.js</label>
+                            <label for="vuejs" class="block text-sm">Vue.js</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://reactjs.org/" target="_blank">
                             <img src="assets/images/brand/react.png" alt="" name="react" class="w-4/5">
-                            <label for="react" class="block text-10">React</label>
+                            <label for="react" class="block text-sm">React</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://tailwindcss.com/" target="_blank">
                             <img src="assets/images/brand/tailwindcss.png" alt="" name="tailwindcss" class="w-4/5">
-                            <label for="tailwindcss" class="block text-10">Tailwind CSS</label>
+                            <label for="tailwindcss" class="block text-sm">Tailwind CSS</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://getbootstrap.com/docs/4.5/about/overview/" target="_blank">
                             <img src="assets/images/brand/bootstrap4.png" alt="" name="bootstrap4" class="w-4/5">
-                            <label for="bootstrap4" class="block text-10">Bootstrap 4</label>
+                            <label for="bootstrap4" class="block text-sm">Bootstrap 4</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://jquery.com/" target="_blank">
                             <img src="assets/images/brand/jquery.png" alt="" name="jquery" class="w-4/5">
-                            <label for="jquery" class="block text-10">jQuery</label>
+                            <label for="jquery" class="block text-sm">jQuery</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://webpack.js.org/" target="_blank">
                             <img src="assets/images/brand/webpack.png" alt="" name="webpack" class="w-4/5">
-                            <label for="webpack" class="block text-10">Webpack</label>
+                            <label for="webpack" class="block text-sm">Webpack</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://babeljs.io/docs/en/" target="_blank">
                             <img src="assets/images/brand/babel.png" alt="" name="babel" class="w-4/5">
-                            <label for="babel" class="block text-10">Babel</label>
+                            <label for="babel" class="block text-sm">Babel</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://unity.com/" target="_blank">
                             <img src="assets/images/brand/unity.png" alt="" name="unity" class="w-4/5">
-                            <label for="unity" class="block text-10">Unity</label>
+                            <label for="unity" class="block text-sm">Unity</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://aws.amazon.com/what-is-aws/" target="_blank">
                             <img src="assets/images/brand/aws.png" alt="" name="aws" class="w-4/5">
-                            <label for="aws" class="block text-10">AWS</label>
+                            <label for="aws" class="block text-sm">AWS</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://git-scm.com/" target="_blank">
                             <img src="assets/images/brand/git.png" alt="" name="git" class="w-4/5">
-                            <label for="git" class="block text-10">git</label>
+                            <label for="git" class="block text-sm">git</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://github.com/" target="_blank">
                             <img src="assets/images/brand/github.png" alt="" name="github" class="w-4/5">
-                            <label for="github" class="block text-10">GitHub</label>
+                            <label for="github" class="block text-sm">GitHub</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://slack.com/about" target="_blank">
                             <img src="assets/images/brand/slack.png" alt="" name="slack" class="w-4/5">
-                            <label for="slack" class="block text-10">Slack</label>
+                            <label for="slack" class="block text-sm">Slack</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://zoom.us/" target="_blank">
                             <img src="assets/images/brand/zoom.png" alt="" name="zoom" class="w-4/5">
-                            <label for="zoom" class="block text-10">Zoom</label>
+                            <label for="zoom" class="block text-sm">Zoom</label>
                         </a>
                     </li>
                     <li class="text-center pb-1">
                         <a href="https://ubuntu.com/about" target="_blank">
                             <img src="assets/images/brand/ubuntu.png" alt="" name="ubuntu" class="w-4/5">
-                            <label for="ubuntu" class="block text-10">Ubuntu</label>
+                            <label for="ubuntu" class="block text-sm">Ubuntu</label>
                         </a>
                     </li>
                 </ul>
@@ -248,15 +248,15 @@
         </section>
         <section id="appsSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
             <div class="mh-screen p-1 bg-white swipe-translate-x">
-                <h1 class="my-1/2 bold text-24">Applications</h1>
+                <h1 class="my-1/2 bold text-lg">Applications</h1>
                 <button
                     type="button"
                     class="w-full mt-1 mb-3/4 pb-1/4 text-left border-solid border-bottom cursor-point">
-                    <h2 class="bold text-18">Connect</h2>
+                    <h2 class="bold text-md">Connect</h2>
                 </button>
                 <div class="transition-ease transition-0.25 origin-top scale-y-0 hidden">
                     <div class="text-center mb-1">
-                        <img src="assets/images/sites/connect.png" alt="" class="h-7">
+                        <img src="assets/images/sites/connect.png" alt="" class="h-7 sm:h-10 lg:h-13">
                     </div>
                     <div class="mb-1 flex justify-between color-lavender">
                         <a href="https://connect.jwenning.digital/" target="_blank">[Live]</a>
@@ -286,11 +286,11 @@
                 <button
                     type="button"
                     class="w-full mt-1 mb-3/4 pb-1/4 text-left border-solid border-bottom cursor-point">
-                    <h2 class="bold text-18">Plush Stop</h2>
+                    <h2 class="bold text-md">Plush Stop</h2>
                 </button>
                 <div class="transition-ease transition-0.25 origin-top scale-y-0 hidden">
                     <div class="text-center mb-1">
-                        <img src="assets/images/sites/plush-stop.png" alt="" class="h-7">
+                        <img src="assets/images/sites/plush-stop.png" alt="" class="h-7 sm:h-10 lg:h-13">
                     </div>
                     <div class="mb-1 flex justify-between color-lavender">
                         <a href="https://plush-stop.jwenning.digital/" target="_blank">[Live]</a>
@@ -325,11 +325,11 @@
                 <button
                     type="button"
                     class="w-full mt-1 mb-3/4 pb-1/4 text-left border-solid border-bottom cursor-point">
-                    <h2 class="bold text-18">Art-Spread</h2>
+                    <h2 class="bold text-md">Art-Spread</h2>
                 </button>
                 <div class="transition-ease transition-0.25 origin-top scale-y-0 hidden">
                     <div class="text-center mb-1">
-                        <img src="assets/images/sites/art-spread.png" alt="" class="h-7">
+                        <img src="assets/images/sites/art-spread.png" alt="" class="h-7 sm:h-10 lg:h-13">
                     </div>
                     <div class="mb-1 flex justify-between color-lavender">
                         <a href="https://art-spread.jwenning.digital/" target="_blank">[Live]</a>
@@ -366,8 +366,8 @@
         </section>
         <section id="infoSection" class="fixed top-0 left-0 w-full transition-ease transition-0.25 hidden menu-spacer">
             <div class="mh-screen p-1 bg-white swipe-translate-x">
-                <h1 class="my-1/2 bold text-24">Additional Info</h1>
-                <h2 class="mt-1 text-18">Find me</h2>
+                <h1 class="my-1/2 bold text-lg">Additional Info</h1>
+                <h2 class="mt-1 text-md">Find me</h2>
                 <ul class="list-none color-lavender">
                     <li class="mt-1/2">
                         <a href="https://github.com/j-wenning/" target="_blank">GitHub</a>
@@ -376,7 +376,7 @@
                         <a href="https://www.linkedin.com/in/j-wenning/" target="_blank">LinkedIn</a>
                     </li>
                 </ul>
-                <h2 class="mt-1 text-18">Contact me</h2>
+                <h2 class="mt-1 text-md">Contact me</h2>
                 <ul class="list-none color-lavender">
                     <li class="mt-1/2">
                         <a id="phone" href="tel:"></a>
@@ -385,7 +385,7 @@
                         <a id="mail" href="mailto:"></a>
                     </li>
                 </ul>
-                <h2 class="mt-1 text-18">Downloads</h2>
+                <h2 class="mt-1 text-md">Downloads</h2>
                 <ul class="list-none color-lavender">
                     <li class="mt-1/2">
                         <a href="assets/Justin_Wenning_Resume.pdf" download>Resume</a>
@@ -394,6 +394,7 @@
             </div>
         </section>
     </main>
+    <footer class="m-1 p-1"></footer>
     <script src="main.js"></script>
 </body>
 </html>
