@@ -151,6 +151,8 @@ b { font-weight: 700; }
 
 .justify-center { justify-content: center; }
 
+.justify-between { justify-content: space-between; }
+
 .content-center { align-content: center; }
 
 .items-center { align-items: center; }
