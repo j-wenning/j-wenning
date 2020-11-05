@@ -631,7 +631,7 @@ b { font-weight: 700; }
     .md\:hidden { display: none; }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 1000px) {
     *, *:focus, *:active, *:hover { font-size: 14pt; }
 
     .lg\:absolute { position: absolute; }
