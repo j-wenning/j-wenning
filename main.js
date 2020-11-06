@@ -127,6 +127,12 @@
         document.documentElement.style.setProperty('--swipe-offset', '0px')
     })
 
+    document.addEventListener('keydown', e => {
+        const key = e.key
+        if (key === 'ArrowLeft' || key === 'a') nextSection(-1)
+        else if (key === 'ArrowRight' || key === 'd') nextSection(1)
+    })
+
     window.addEventListener('resize', () => {
         menu.classList.add('menu-translate-y')
         menuCloser.classList.add('hidden')
