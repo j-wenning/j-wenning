@@ -73,10 +73,10 @@
     }
     const setMenuOffset = () => document.documentElement.style.setProperty(
         '--menu-offset',
-        ['height', 'padding-top', 'padding-bottom', 'margin-top', 'margin-bottom']
+        (['height', 'padding-top', 'padding-bottom', 'margin-top', 'margin-bottom']
             .reduce((a, prop) =>
                 a += parseInt(getComputedStyle(menuButton).getPropertyValue(prop))
-            , 0) + 'px'
+            , 0) || 0) + 'px'
     )
 
     {
@@ -87,6 +87,10 @@
                 sections.push(document.querySelector('#' + el.id.replace('Button', 'Section')))
                 el.addEventListener('click', () => setSection(index))
             }
+            else if (el.classList.contains('nextSection')) {
+                el.addEventListener('click', () => nextSection(parseInt(el.getAttribute('data-dir'))))
+                return
+            }
             el.addEventListener('click', () => {
                 menu.classList.toggle('menu-translate-y')
                 setTimeout(
@@ -96,7 +100,6 @@
             })
         })
     }
-
 
     document.querySelectorAll('#appsSection button').forEach(el => {
         const nextElTiming = parseFloat(getComputedStyle(el.nextElementSibling).transitionDuration) * MS_TO_S
@@ -124,7 +127,17 @@
         document.documentElement.style.setProperty('--swipe-offset', '0px')
     })
 
-    window.addEventListener('resize', () => setMenuOffset())
+    document.addEventListener('keydown', e => {
+        const key = e.key
+        if (key === 'ArrowLeft' || key === 'a') nextSection(-1)
+        else if (key === 'ArrowRight' || key === 'd') nextSection(1)
+    })
+
+    window.addEventListener('resize', () => {
+        menu.classList.add('menu-translate-y')
+        menuCloser.classList.add('hidden')
+        setMenuOffset()
+    })
 
     mail.setAttribute('href', 'mailto:' + mailStr)
 

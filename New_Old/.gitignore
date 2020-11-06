@@ -1,5 +1,0 @@
-.vscode
-.env
-node_modules
-server/session/*[^.gitkeep]
-server/log/*[^.gitkeep]
