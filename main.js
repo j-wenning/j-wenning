@@ -87,6 +87,10 @@
                 sections.push(document.querySelector('#' + el.id.replace('Button', 'Section')))
                 el.addEventListener('click', () => setSection(index))
             }
+            else if (el.classList.contains('nextSection')) {
+                el.addEventListener('click', () => nextSection(parseInt(el.getAttribute('data-dir'))))
+                return
+            }
             el.addEventListener('click', () => {
                 menu.classList.toggle('menu-translate-y')
                 setTimeout(
