@@ -73,10 +73,10 @@
     }
     const setMenuOffset = () => document.documentElement.style.setProperty(
         '--menu-offset',
-        ['height', 'padding-top', 'padding-bottom', 'margin-top', 'margin-bottom']
+        (['height', 'padding-top', 'padding-bottom', 'margin-top', 'margin-bottom']
             .reduce((a, prop) =>
                 a += parseInt(getComputedStyle(menuButton).getPropertyValue(prop))
-            , 0) + 'px'
+            , 0) || 0) + 'px'
     )
 
     {
@@ -96,7 +96,6 @@
             })
         })
     }
-
 
     document.querySelectorAll('#appsSection button').forEach(el => {
         const nextElTiming = parseFloat(getComputedStyle(el.nextElementSibling).transitionDuration) * MS_TO_S
@@ -124,7 +123,11 @@
         document.documentElement.style.setProperty('--swipe-offset', '0px')
     })
 
-    window.addEventListener('resize', () => setMenuOffset())
+    window.addEventListener('resize', () => {
+        menu.classList.add('menu-translate-y')
+        menuCloser.classList.add('hidden')
+        setMenuOffset()
+    })
 
     mail.setAttribute('href', 'mailto:' + mailStr)
 
