@@ -8,7 +8,7 @@
 </head>
 <body class="lg:flex">
     <header id="menu" class="fixed lg:static top-0 w-full lg:w-20 mw-screen z-1 lg:m-0 transition-ease transition-0.25 menu-translate-y">
-        <nav class="lg:sticky lg:top-0 lg:h-screen flex flex-col items1-center text-center color-white bg-blue">
+        <nav class="lg:sticky lg:top-0 lg:h-screen flex flex-col lg:justify-between text-center color-white bg-blue">
             <ul class="flex flex-col list-none">
                 <li class="mt-1/2 lg:m-1">
                     <button
@@ -39,13 +39,21 @@
                         >Additional Info</button>
                 </li>
             </ul>
-            <button
-                id="menuButton"
-                type="button"
-                class="w-full mw-4 m-auto my-1/2 px-1 border-solid border-1 radius-15 border-white bg-blue-ah cursor-point lg:hidden">
-                <hr class="mt-1/2 mb-1/4 border-solid border-1">
-                <hr class="mb-1/2 mt-1/4 border-solid border-1">
-            </button>
+            <div class="lg:static lg:pb-1 flex justify-around">
+                <button type="button" class="pl-1 filter-invert-1/4-ah cursor-point nextSection" data-dir="-1">
+                    <img src="assets/images/arrow.svg" alt="" class="h-2 border-solid border-2 radius-full color-white -scale-x-1">
+                </button>
+                <button
+                    id="menuButton"
+                    type="button"
+                    class="w-full mw-4 m-auto my-1/2 px-1 border-solid border-1 radius-15 border-white bg-blue-ah cursor-point lg:hidden">
+                    <hr class="mt-1/2 mb-1/4 border-solid border-1">
+                    <hr class="mb-1/2 mt-1/4 border-solid border-1">
+                </button>
+                <button type="button" class="pr-1 filter-invert-1/4-ah cursor-point nextSection" data-dir="1">
+                    <img src="assets/images/arrow.svg" alt="" class="h-2 border-solid border-2 radius-full color-white">
+                </button>
+            </div>
         </nav>
         <button id="menuCloser" class="w-full h-screen hidden lg:hidden"></button>
     </header>
