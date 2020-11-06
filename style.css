@@ -812,7 +812,5 @@ b { font-weight: 700; }
 
     .lg\:hidden { display: none; }
 
-    /* PAGE SPECIFIC RULES */
-
-    .menu-spacer { }
+    .menu-translate-y { transform: none; }
 }
