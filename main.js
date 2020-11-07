@@ -9,6 +9,7 @@
     const menu = document.querySelector('#menu')
     const mail = document.querySelector('#mail')
     const phone = document.querySelector('#phone')
+    const toast = document.querySelector('#toast')
     const sections = []
     let curIndex = 0
     let sectionDelay = 200
@@ -81,6 +82,7 @@
     const getMouseAsTouch = (e, touchName) => Object.assign(new Event(touchName), {
         touches: [ { clientX: e.clientX, clientY: e.clientY } ]
     })
+    const closeEl = e => e.currentTarget.classList.add('hidden')
 
     {
         const menuTransitionDur = parseFloat(getComputedStyle(menu).transitionDuration) * MS_TO_S
@@ -149,6 +151,13 @@
         menuCloser.classList.add('hidden')
         setMenuOffset()
     })
+
+    toast.addEventListener('click', () => toast.classList.add('hidden'))
+
+    setTimeout(
+        () => toast.classList.add('hidden'),
+        parseFloat(getComputedStyle(toast).animationDuration) * MS_TO_S
+    )
 
     mail.setAttribute('href', 'mailto:' + mailStr)
 
