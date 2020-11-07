@@ -9,6 +9,7 @@
     const menu = document.querySelector('#menu')
     const mail = document.querySelector('#mail')
     const phone = document.querySelector('#phone')
+    const toast = document.querySelector('#toast')
     const sections = []
     let curIndex = 0
     let sectionDelay = 200
@@ -78,6 +79,10 @@
                 a += parseInt(getComputedStyle(menuButton).getPropertyValue(prop))
             , 0) || 0) + 'px'
     )
+    const getMouseAsTouch = (e, touchName) => Object.assign(new Event(touchName), {
+        touches: [ { clientX: e.clientX, clientY: e.clientY } ]
+    })
+    const closeEl = e => e.currentTarget.classList.add('hidden')
 
     {
         const menuTransitionDur = parseFloat(getComputedStyle(menu).transitionDuration) * MS_TO_S
@@ -111,9 +116,15 @@
         })
     })
 
-    document.addEventListener('touchstart', e => touchPointIni = { x: e.touches[0].pageX, y: e.touches[0].pageY })
+    document.addEventListener('mousedown', e => document.dispatchEvent(getMouseAsTouch(e, 'touchstart')))
+    document.addEventListener('mousemove', e => {
+        if (!window.getSelection().toString())
+        document.dispatchEvent(getMouseAsTouch(e, 'touchmove'))
+    })
+    document.addEventListener('mouseup', e => document.dispatchEvent(getMouseAsTouch(e, 'touchend')))
+    document.addEventListener('touchstart', e => touchPointIni = { x: e.touches[0].clientX, y: e.touches[0].clientY })
     document.addEventListener('touchmove', e => {
-        touchPointEnd = { x: e.touches[0].pageX, y: e.touches[0].pageY }
+        touchPointEnd = { x: e.touches[0].clientX, y: e.touches[0].clientY }
         touchPointDif = { x: touchPointEnd?.x - touchPointIni?.x, y: touchPointIni?.y - touchPointEnd?.y }
         if (Math.abs(touchPointDif.x) > X_SWIPE_MIN / 2) {
             document.documentElement.style.setProperty('--swipe-offset', -touchPointDif.x / 2 + 'px')
@@ -127,6 +138,8 @@
         document.documentElement.style.setProperty('--swipe-offset', '0px')
     })
 
+    document.addEventListener('dragstart', e => document.dispatchEvent(new Event('touchend')))
+
     document.addEventListener('keydown', e => {
         const key = e.key
         if (key === 'ArrowLeft' || key === 'a') nextSection(-1)
@@ -138,6 +151,13 @@
         menuCloser.classList.add('hidden')
         setMenuOffset()
     })
+
+    toast.addEventListener('click', () => toast.classList.add('hidden'))
+
+    setTimeout(
+        () => toast.classList.add('hidden'),
+        parseFloat(getComputedStyle(toast).animationDuration) * MS_TO_S
+    )
 
     mail.setAttribute('href', 'mailto:' + mailStr)
 

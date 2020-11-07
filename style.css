@@ -37,6 +37,10 @@ b { font-weight: 700; }
 
 .top-0 { top: 0; }
 
+.right-0 { right: 0; }
+
+.bottom-0 { bottom: 0; }
+
 .left-0 { left: 0; }
 
 .w-screen { width: 100vw; }
@@ -231,9 +235,13 @@ b { font-weight: 700; }
 
 .scroll-y { overflow-y: scroll; }
 
+.color-black { color: black; }
+
 .color-white { color: white; }
 
 .color-lavender { color: rgb(142, 77, 247); }
+
+.color-orange { color: rgb(236, 143, 36); }
 
 .color-gray { color: lightgray; }
 
@@ -242,6 +250,8 @@ b { font-weight: 700; }
 .border-white { border-color: white; }
 
 .bg-white { background-color: white; }
+
+.bg-goldfish { background-color: rgb(248, 199, 64) ;}
 
 .bg-blue { background-color: rgb(77, 182, 247); }
 
@@ -258,6 +268,8 @@ b { font-weight: 700; }
 .translate-x-full { transform: translateX(100%); }
 
 .-translate-x-full { transform: translateX(-100% ); }
+
+.translate-y-full { transform: translateY(100%); }
 
 .-scale-x-1 { transform: scaleX(-1); }
 
@@ -281,6 +293,17 @@ b { font-weight: 700; }
 
 .swipe-translate-x { transform: translateX(calc(0px - var(--swipe-offset))); }
 
+.toast {
+    transform: translateY(100%);
+    animation: toast 10s ease;
+}
+
+@keyframes toast {
+    from    { transform: translateY(100%); }
+    2%, 98% { transform: translateY(0);    }
+    toast   { transform: translateY(100%); }
+}
+
 @media only screen and (min-width: 350px) {
     *, *:focus, *:active, *:hover { font-size: 12pt; }
 
@@ -295,6 +318,10 @@ b { font-weight: 700; }
     .sm\:static { position: static; }
 
     .sm\:top-0 { top: 0; }
+
+    .sm\:right-0 { right: 0; }
+
+    .sm\:bottom-0 { bottom: 0; }
 
     .sm\:left-0 { left: 0; }
 
@@ -486,6 +513,10 @@ b { font-weight: 700; }
 
     .md\:top-0 { top: 0; }
 
+    .md\:right-0 { right: 0; }
+
+    .md\:bottom-0 { bottom: 0; }
+
     .md\:left-0 { left: 0; }
 
     .md\:w-screen { width: 100vw; }
@@ -675,6 +706,10 @@ b { font-weight: 700; }
     .lg\:static { position: static; }
 
     .lg\:top-0 { top: 0; }
+
+    .lg\:right-0 { right: 0; }
+
+    .lg\:bottom-0 { bottom: 0; }
 
     .lg\:left-0 { left: 0; }
 
